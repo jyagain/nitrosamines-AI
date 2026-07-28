@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPCA 계산기 - 니트로사민 불순물 위해성 평가 시스템</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- SmilesDrawer CDN -->
+    <script src="https://unpkg.com/smiles-drawer@2.0.1/dist/smiles-drawer.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header -->
+        <header class="main-header no-print">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-flask-vial"></i>
+                </div>
+                <div>
+                    <h1>CPCA 계산기</h1>
+                    <p class="subtitle">Nitrosamine Impurity Risk Assessor</p>
+                </div>
+            </div>
+            <div class="header-desc">
+                노바티스(Novartis) 오픈소스 알고리즘 기반 니트로사민 발암 가능성 분류 접근법(CPCA) 신속 평가 도구
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav no-print" id="mainTabNav">
+            <button class="tab-btn active" id="tabBtnAuto" onclick="switchTab('auto')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> SMILES 자동 분석기
+            </button>
+            <button class="tab-btn" id="tabBtnManual" onclick="switchTab('manual')">
+                <i class="fa-solid fa-list-check"></i> 자가진단 수동 위자드
+            </button>
+        </nav>
+
+        <!-- Main Panel Grid -->
+        <main class="main-content">
+            
+            <!-- TAB 1: Auto Calculator -->
+            <section class="tab-content active" id="tabContentAuto">
+                <div class="grid-layout">
+                    <!-- Left Column: Inputs -->
+                    <div class="card input-card no-print">
+                        <h2 class="card-title"><i class="fa-solid fa-vial"></i> 입력 및 구조 선택</h2>
+                        
+                        <!-- Sub Tab Navigation -->
+                        <nav class="sub-tab-nav">
+                            <button class="sub-tab-btn active" id="subTabBtnAdi" onclick="switchSubTab('adi')">
+                                <i class="fa-solid fa-magnifying-glass"></i> 식약처 기준 설정 니트로사민류
+                            </button>
+                            <button class="sub-tab-btn" id="subTabBtnPredict" onclick="switchSubTab('predict')">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> 신규 니트로사민류 예측
+                            </button>
+                        </nav>
+                        
+                        <!-- Sub Tab 1: Adi (식약처 발표 기준 설정 니트로사민류) -->
+                        <div class="sub-tab-content active" id="subTabContentAdi">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5;">
+                                식약처가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.
+                            </p>
+                            
+                            <div class="form-group">
+                                <label for="adiSearchInput">CAS 번호, 발생성분명 또는 불순물명 입력</label>
+                                <div class="smiles-input-group">
+                                    <input type="text" id="adiSearchInput" placeholder="예: 62-75-9, 보노프라잔, 또는 Carvedilol" autocomplete="off">
+                                    <button class="btn btn-primary" id="btnAdiSearch" onclick="runAdiLookup()">
+                                        <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sub Tab 2: Predict (신규 니트로사민류 예측) -->
+                        <div class="sub-tab-content" id="subTabContentPredict">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5;">
+                                식약처에서 기준을 설정하여 발표하지 않은 신규 니트로사민에 대해, 화학 구조(SMILES) 또는 2D 구조식을 기반으로 CPCA 등급 및 기준치를 예측합니다.
+                            </p>
+                            
+
+                            <div class="form-group">
+                                <label for="smilesInput">SMILES 직접 입력</label>
+                                <div class="smiles-input-group">
+                                    <input type="text" id="smilesInput" placeholder="예: CCN(CC)N=O" autocomplete="off">
+                                    <button class="btn btn-primary" id="btnAnalyze" onclick="runPredictCPCA()">
+                                        <i class="fa-solid fa-calculator"></i> 예측 실행
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="chemical-draw-card">
+                                <div class="draw-header">
+                                    <span>2D 구조 시각화 및 편집</span>
+                                    <div class="draw-header-btns">
+                                        <button class="btn btn-secondary" id="btnToggleDraw" onclick="toggleDrawMode()" style="padding: 0.4rem 0.8rem; font-size: 0.82rem; border-radius: 6px;">
+                                            <span id="drawBtnText"><i class="fa-solid fa-pen"></i> 분자 구조 직접 그리기</span>
+                                        </button>
+                                        <button class="btn-icon" id="btnRedrawCanvas" onclick="redrawCanvas()" title="다시 그리기"><i class="fa-solid fa-rotate-right"></i></button>
+                                    </div>
+                                </div>
+                                <div class="canvas-container">
+                                    <canvas id="smilesCanvas" width="400" height="300"></canvas>
+                                    <div id="jsmeContainer" style="width: 400px; height: 300px; display: none; margin: 0 auto;"></div>
+                                    <div class="canvas-placeholder" id="canvasPlaceholder">
+                                        <i class="fa-solid fa-circle-nodes"></i>
+                                        <p>SMILES를 입력하면 2D 구조식이 렌더링됩니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Common MDD Configuration -->
+                        <div class="form-group" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+                            <label for="mddInputAuto">1일 최대 복용량 (Maximum Daily Dose, MDD - 선택사항)</label>
+                            <div class="mdd-input-group" style="display: flex; align-items: center; gap: 0.5rem; max-width: 320px;">
+                                <input type="number" id="mddInputAuto" placeholder="예: 100" min="0.01" step="any" style="flex: 1;" oninput="syncMdd('auto')">
+                                <span style="font-weight: 600; color: var(--text-secondary); white-space: nowrap;">mg / day</span>
+                            </div>
+                            <small class="form-text">복용량 입력 시 불순물 허용 농도 기준(ppm) 및 30% 관리 기준선을 자동 산출합니다.</small>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Results -->
+                    <div class="card result-card">
+                        <div class="result-header">
+                            <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> CPCA 평가 결과</h2>
+                            <button class="btn btn-secondary no-print" id="btnPrintReport" onclick="printResult()">
+                                <i class="fa-solid fa-print"></i> 리포트 인쇄 / PDF
+                            </button>
+                        </div>
+                        
+                        <div id="resultOutputArea">
+                            <div class="empty-state">
+                                <i class="fa-solid fa-calculator"></i>
+                                <h3>계산 대기 중</h3>
+                                <p>SMILES를 입력하고 [분석 실행]을 누르거나 샘플을 선택하여 분석 결과를 받아보세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: Manual Wizard -->
+            <section class="tab-content" id="tabContentManual">
+                <div class="grid-layout">
+                    <!-- Left Column: Wizard Questions -->
+                    <div class="card wizard-card no-print">
+                        <h2 class="card-title"><i class="fa-solid fa-clipboard-question"></i> 구조 특성 자가진단 항목</h2>
+                        <p class="wizard-subtitle">SMILES 파싱이 불가능하거나 구조가 복잡한 경우, 화학 지식을 바탕으로 직접 체크하여 판정합니다.</p>
+                        
+                        <form id="wizardForm" onchange="runWizardCalculation()">
+                            <!-- Q1: Alpha Hydrogens -->
+                            <div class="wizard-group">
+                                <div class="wizard-q-header">
+                                    <span class="q-badge">1단계</span>
+                                    <h3>알파 탄소의 수소 개수 조합 (Alpha-Hydrogen Score)</h3>
+                                </div>
+                                <div class="radio-group-tile">
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="1,2" checked>
+                                        <div class="tile-content">
+                                            <span class="tile-title">[1, 2] 또는 [1, 3] 조합</span>
+                                            <span class="tile-badge badge-green">+3 점</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="0,2">
+                                        <div class="tile-content">
+                                            <span class="tile-title">[0, 2] 조합 (기본형)</span>
+                                            <span class="tile-badge badge-green">+3 점</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="0,2_ethyl">
+                                        <div class="tile-content">
+                                            <span class="tile-title">[0, 2] 조합 (에틸기 포함 예외)</span>
+                                            <span class="tile-badge badge-yellow">+2 점</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="0,3">
+                                        <div class="tile-content">
+                                            <span class="tile-title">[0, 3] 조합</span>
+                                            <span class="tile-badge badge-yellow">+2 점</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="2,2">
+                                        <div class="tile-content">
+                                            <span class="tile-title">[2, 2] 또는 [2, 3] 조합</span>
+                                            <span class="tile-badge badge-red">+1 점</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="tertiary">
+                                        <div class="tile-content">
+                                            <span class="tile-title">3차 알파 탄소 존재 (SP3 & 탄소결합 3개)</span>
+                                            <span class="tile-badge badge-grey">등급 외 (Cat 5)</span>
+                                        </div>
+                                    </label>
+                                    <label class="tile-label">
+                                        <input type="radio" name="wizAlphaH" value="none">
+                                        <div class="tile-content">
+                                            <span class="tile-title">기타 (알파 수소 없거나 1개 이하, [3,3] 등)</span>
+                                            <span class="tile-badge badge-grey">등급 외 (Cat 5)</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Q2: Carboxylic Acid -->
+                            <div class="wizard-group">
+                                <div class="wizard-q-header">
+                                    <span class="q-badge">2단계</span>
+                                    <h3>탈활성화 인자 가산 (Deactivating Features)</h3>
+                                </div>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="wizAcid">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-text">카르복실산(Carboxylic Acid) 그룹이 분자 내에 존재 (+3점)</span>
+                                    </label>
+                                    
+                                    <div class="sub-select-group">
+                                        <label for="wizRing">니트로사민 고리 포함 여부 및 특성</label>
+                                        <select id="wizRing" class="select-control">
+                                            <option value="0">해당 없음 (사슬형 구조 등)</option>
+                                            <option value="3">피롤리딘(Pyrrolidine) 고리 구조 (+3점)</option>
+                                            <option value="3_S">황(S) 원자를 포함하는 6원 포화 고리 (+3점)</option>
+                                            <option value="2">기타 5원 또는 6원 포화 고리 구조 (+2점)</option>
+                                            <option value="1">7원 포화 고리 구조 (+1점)</option>
+                                            <option value="1_M">모폴린(Morpholine) 고리 구조 (+1점)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="wizChain">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-text">양측 모두 연속 5개 이상의 비수소 원자 사슬 존재 (+1점)</span>
+                                    </label>
+                                    
+                                    <div class="counter-group">
+                                        <div class="counter-label">
+                                            <span>α-탄소에 직접 결합된 전자끌림기(EWG) 개수</span>
+                                            <small>(할로겐, -O-, -N-, -S-, -CN, -CF3, -NO2, 에스테르, 아미드 등)</small>
+                                        </div>
+                                        <div class="counter-controls">
+                                            <button type="button" onclick="adjustCounter('wizEwgCount', -1)">-</button>
+                                            <input type="number" id="wizEwgCount" value="0" min="0" max="4" readonly>
+                                            <button type="button" onclick="adjustCounter('wizEwgCount', 1)">+</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="counter-group">
+                                        <div class="counter-label">
+                                            <span>β-탄소에 결합된 하이드록실기(-OH) 개수</span>
+                                        </div>
+                                        <div class="counter-controls">
+                                            <button type="button" onclick="adjustCounter('wizOhCount', -1)">-</button>
+                                            <input type="number" id="wizOhCount" value="0" min="0" max="4" readonly>
+                                            <button type="button" onclick="adjustCounter('wizOhCount', 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Q3: Activating Features -->
+                            <div class="wizard-group">
+                                <div class="wizard-q-header">
+                                    <span class="q-badge">3단계</span>
+                                    <h3>활성화 인자 감산 (Activating Features)</h3>
+                                </div>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="wizAryl">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-text">α-탄소에 아릴기(Aryl 고리) 결합 (-1점)</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="wizMethyl">
+                                        <span class="checkbox-custom"></span>
+                                        <span class="checkbox-text">β-탄소에 메틸기 결합 (이때 β-탄소는 1개의 H만 보유해야 함) (-1점)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- MDD Configuration (Optional) -->
+                            <div class="wizard-group" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+                                <div class="wizard-q-header">
+                                    <span class="q-badge" style="background-color: var(--color-primary); color: #ffffff;">QC</span>
+                                    <h3>1일 최대 복용량 설정 (MDD, 선택사항)</h3>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <div class="mdd-input-group" style="display: flex; align-items: center; gap: 0.5rem; max-width: 300px;">
+                                        <input type="number" id="mddInputManual" placeholder="예: 100" min="0.01" step="any" style="flex: 1;" oninput="syncMdd('manual')">
+                                        <span style="font-weight: 600; color: var(--text-secondary); white-space: nowrap;">mg / day</span>
+                                    </div>
+                                    <small class="form-text" style="margin-top: 0.4rem;">의약품 내 허용 농도 기준(ppm)을 자동 산출합니다.</small>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Wizard Results -->
+                    <div class="card result-card">
+                        <div class="result-header">
+                            <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> 위자드 판정 결과</h2>
+                            <button class="btn btn-secondary no-print" id="btnPrintWizard" onclick="printResult()">
+                                <i class="fa-solid fa-print"></i> 리포트 인쇄 / PDF
+                            </button>
+                        </div>
+                        
+                        <div id="wizardOutputArea">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- PRINT ONLY: Clean Printable Report Template -->
+        <section class="print-report-container only-print" id="printReportTemplate">
+            <div class="print-header">
+                <h2>니트로사민 위해성 평가 상세 리포트 (CPCA)</h2>
+                <p class="report-meta">인쇄 일시: <span id="printDate">2026-07-27</span> | 분석 엔진: Novartis CPCA Algorithm V1.0</p>
+            </div>
+            
+            <table class="report-table">
+                <tr>
+                    <th>평가 대상 명칭</th>
+                    <td id="printTargetName">-</td>
+                    <th>SMILES 화학식</th>
+                    <td id="printTargetSmiles" class="smiles-font">-</td>
+                </tr>
+                <tr>
+                    <th>최종 CPCA 등급</th>
+                    <td id="printCategory" class="highlight-cell">-</td>
+                    <th>1일 허용섭취량(AI)</th>
+                    <td id="printAi" class="highlight-cell">-</td>
+                </tr>
+                <tr>
+                    <th>종합 Potency Score</th>
+                    <td id="printScore">-</td>
+                    <th>분석 모드</th>
+                    <td id="printMode">-</td>
+                </tr>
+                <tr id="printMddRow" style="display: none;">
+                    <th>1일 최대 복용량 (MDD)</th>
+                    <td id="printMddValue">-</td>
+                    <th>허용 농도 기준 (Concentration Limit)</th>
+                    <td id="printLimitValue" class="highlight-cell" style="font-weight: 700;">-</td>
+                </tr>
+            </table>
+            
+            <div id="printWarningArea" style="display:none; margin-bottom: 20px; border: 1.5px solid #d97706; background-color: #fffbeb; padding: 12px; font-size: 9.5pt; color: #78350f;">
+            </div>
+            
+            <div id="printCasComparisonArea" style="display:none; margin-bottom: 20px; border: 1.5px solid #2563eb; background-color: #eff6ff; padding: 12px; font-size: 9.5pt; color: #1e3a8a;">
+            </div>
+
+            <div class="report-section">
+                <h3>1. 분자 2D 구조식</h3>
+                <div class="print-canvas-wrapper">
+                    <!-- Cloned canvas goes here during print -->
+                    <canvas id="printSmilesCanvas" width="300" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="report-section">
+                <h3>2. 단계별 가감점 산출 세부 내역</h3>
+                <ul class="print-messages-list" id="printReportMessages">
+                    <!-- Dynamic message list -->
+                </ul>
+            </div>
+
+            <div class="report-section print-info-box">
+                <h4>[알아두기] CPCA 카테고리별 1일 섭취허용량(AI) 규제 기준</h4>
+                <ul>
+                    <li><strong>Category 1:</strong> 26.5 ng/day (매우 높은 발암 위해성 우려)</li>
+                    <li><strong>Category 2:</strong> 100 ng/day</li>
+                    <li><strong>Category 3:</strong> 400 ng/day</li>
+                    <li><strong>Category 4:</strong> 1500 ng/day</li>
+                    <li><strong>Category 5:</strong> 1500 ng/day 이상 (발암 우려 낮음)</li>
+                </ul>
+                <p class="disclaimer">본 리포트는 Novartis CPCA 평가 기준 알고리즘에 기초하여 생성되었으며, 제품 인허가 및 최종 위해성 검증은 각 국가의 식약처 공식 가이드라인 및 시험법을 따라야 합니다.</p>
+            </div>
+
+            <div class="print-signatures">
+                <div class="signature-box">
+                    <p>평가 담당자 (연구원)</p>
+                    <div class="sign-line"></div>
+                    <p>(서명/인)</p>
+                </div>
+                <div class="signature-box">
+                    <p>기술 책임자 (승인자)</p>
+                    <div class="sign-line"></div>
+                    <p>(서명/인)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer no-print">
+            <p>© 2026 CPCA 계산기 - 클라이언트 사이드 니트로사민 불순물 평가 솔루션</p>
+            <p class="disclaimer">Novartis Open Source CPCA Script (MIT License)에 근거하여 개발되었습니다. 모든 계산은 브라우저 로컬 환경에서 기밀이 유지된 채 수행됩니다.</p>
+        </footer>
+    </div>
+
+    <!-- Application JavaScripts -->
+    <script src="data.js"></script>
+    <script src="adi_db.js"></script>
+    <script src="cpca_engine.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
