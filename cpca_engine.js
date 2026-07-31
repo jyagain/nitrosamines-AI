@@ -1,180 +1,108 @@
 // Based on Novartis Institutes for BioMedical Research Inc. CPCA Script (MIT License)
 
 /**
- * Parses a SMILES string into a chemical graph (atoms and bonds).
- * This is a lightweight, pure JavaScript parser designed to handle nitrosamine structures.
+ * Parses a SMILES string into a chemical graph (atoms and bonds) using RDKit-JS.
+ * Maps RDKit's JSON representation into the graph format expected by the CPCA engine.
  */
 function parseSmiles(smiles) {
+    if (!window.RDKit) {
+        throw new Error("RDKit 화학 엔진이 아직 로드되지 않았습니다. 잠시 후 다시 시도해 주세요.");
+    }
+    
     smiles = smiles.trim();
-    const atoms = [];
-    const bonds = [];
-    const branchStack = [];
-    const ringClosures = {};
+    if (!smiles) {
+        throw new Error("SMILES 문자열이 비어 있습니다.");
+    }
     
-    let i = 0;
-    let activeAtomIdx = null;
-    let currentBondType = null;
+    let mol = null;
+    try {
+        mol = window.RDKit.get_mol(smiles);
+    } catch (e) {
+        throw new Error("RDKit이 SMILES 구조식을 인식하지 못했습니다.");
+    }
     
-    while (i < smiles.length) {
-        let char = smiles[i];
+    if (!mol) {
+        throw new Error("유효하지 않은 SMILES 구조식입니다.");
+    }
+    
+    let jsonStr;
+    try {
+        jsonStr = mol.get_json();
+    } catch (e) {
+        throw new Error("분자 구조 JSON 변환 실패: " + e.message);
+    } finally {
+        mol.delete(); // Free WASM memory
+    }
+    
+    let data;
+    try {
+        data = JSON.parse(jsonStr);
+    } catch (e) {
+        throw new Error("JSON 파싱 에러");
+    }
+    
+    const molData = data.molecules?.[0];
+    if (!molData) {
+        throw new Error("분자 정보가 존재하지 않습니다.");
+    }
+    
+    const rdkitRep = molData.extensions?.find(ext => ext.name === 'rdkitRepresentation') || {};
+    const aromaticAtoms = new Set(rdkitRep.aromaticAtoms || []);
+    const aromaticBonds = new Set(rdkitRep.aromaticBonds || []);
+    
+    const defaultAtom = data.defaults?.atom || {};
+    const defaultBond = data.defaults?.bond || {};
+    
+    const rawAtoms = molData.atoms || [];
+    const rawBonds = molData.bonds || [];
+    
+    const ATOMIC_NUMBER_TO_ELEMENT = {
+        1: 'H',
+        5: 'B',
+        6: 'C',
+        7: 'N',
+        8: 'O',
+        9: 'F',
+        15: 'P',
+        16: 'S',
+        17: 'Cl',
+        35: 'Br',
+        53: 'I'
+    };
+    
+    const atoms = rawAtoms.map((rawAtom, idx) => {
+        const z = rawAtom.z !== undefined ? rawAtom.z : (defaultAtom.z !== undefined ? defaultAtom.z : 6);
+        const element = ATOMIC_NUMBER_TO_ELEMENT[z] || 'Unknown';
+        const isAromatic = aromaticAtoms.has(idx);
+        const charge = rawAtom.chg !== undefined ? rawAtom.chg : (defaultAtom.chg !== undefined ? defaultAtom.chg : 0);
+        const impHs = rawAtom.impHs !== undefined ? rawAtom.impHs : (defaultAtom.impHs !== undefined ? defaultAtom.impHs : 0);
         
-        // Disconnected components
-        if (char === '.') {
-            activeAtomIdx = null;
-            currentBondType = null;
-            i++;
-            continue;
-        }
-        
-        // Branching
-        if (char === '(') {
-            branchStack.push(activeAtomIdx);
-            i++;
-            continue;
-        }
-        if (char === ')') {
-            activeAtomIdx = branchStack.pop();
-            i++;
-            continue;
-        }
-        
-        // Bonds
-        if (char === '-' || char === '=' || char === '#' || char === ':' || char === '/' || char === '\\') {
-            let type = 1;
-            if (char === '=') type = 2;
-            if (char === '#') type = 3;
-            if (char === ':') type = 1.5;
-            currentBondType = type;
-            i++;
-            continue;
-        }
-        
-        // Ring closures
-        let ringNum = null;
-        if (char === '%') {
-            ringNum = parseInt(smiles.substring(i + 1, i + 3));
-            i += 3;
-        } else if (char >= '0' && char <= '9') {
-            ringNum = parseInt(char);
-            i++;
-        }
-        
-        if (ringNum !== null) {
-            if (ringClosures[ringNum] !== undefined) {
-                const partnerIdx = ringClosures[ringNum];
-                const type = currentBondType !== null ? currentBondType : 1;
-                bonds.push({ from: activeAtomIdx, to: partnerIdx, type: type });
-                currentBondType = null;
-                delete ringClosures[ringNum];
-            } else {
-                ringClosures[ringNum] = activeAtomIdx;
-            }
-            continue;
-        }
-        
-        // Atoms
-        let atomData = null;
-        if (char === '[') {
-            let closeIdx = smiles.indexOf(']', i);
-            if (closeIdx === -1) {
-                throw new Error("Invalid SMILES: unclosed bracket");
-            }
-            let content = smiles.substring(i + 1, closeIdx);
-            
-            // Strip leading isotope digits
-            content = content.replace(/^\d+/, '');
-            
-            // Match element
-            let elementMatch = content.match(/^(Cl|Br|C|N|O|S|P|F|I|B|H|c|n|o|s)/);
-            if (!elementMatch) {
-                throw new Error("Unknown element in bracket: [" + content + "]");
-            }
-            let rawElement = elementMatch[1];
-            let isAromatic = (rawElement === rawElement.toLowerCase());
-            let element = rawElement.toUpperCase();
-            
-            let rest = content.substring(rawElement.length);
-            
-            // Remove stereochemical markers like @ or @@
-            rest = rest.replace(/@+/g, '');
-            
-            // Explicit hydrogens
-            let explicitH = null;
-            let hMatch = rest.match(/H(\d*)/);
-            if (hMatch) {
-                explicitH = hMatch[1] === "" ? 1 : parseInt(hMatch[1]);
-                rest = rest.replace(/H\d*/, '');
-            }
-            
-            // Charge
-            let charge = 0;
-            if (rest.includes('+')) {
-                let match = rest.match(/\+(\d*)/);
-                charge = match[1] === "" ? (rest.split('+').length - 1) : parseInt(match[1]);
-            } else if (rest.includes('-')) {
-                let match = rest.match(/\-(\d*)/);
-                charge = match[1] === "" ? -(rest.split('-').length - 1) : -parseInt(match[1]);
-            }
-            
-            atomData = { element, isAromatic, charge, explicitH };
-            i = closeIdx + 1;
-        } else {
-            // Bare atoms (Cl, Br, C, N, O, S, F, P, I, B, c, n, o, s)
-            let symbol = char;
-            if (i + 1 < smiles.length) {
-                let nextChar = smiles[i + 1];
-                if ((char === 'C' && nextChar === 'l') || (char === 'B' && nextChar === 'r')) {
-                    symbol = char + nextChar;
-                    i += 2;
-                } else {
-                    i += 1;
-                }
-            } else {
-                i += 1;
-            }
-            
-            let isAromatic = (symbol === symbol.toLowerCase());
-            let element = symbol.toUpperCase();
-            atomData = { element, isAromatic, charge: 0, explicitH: null };
-        }
-        
-        // Add atom to list
-        const atomIdx = atoms.length;
-        atoms.push({
-            id: atomIdx,
-            element: atomData.element,
-            isAromatic: atomData.isAromatic,
-            charge: atomData.charge,
-            explicitH: atomData.explicitH,
+        return {
+            id: idx,
+            element: element,
+            isAromatic: isAromatic,
+            charge: charge,
+            explicitH: impHs,
             neighbors: []
-        });
+        };
+    });
+    
+    rawBonds.forEach((rawBond, bondIdx) => {
+        const from = rawBond.atoms[0];
+        const to = rawBond.atoms[1];
         
-        // Create bond with active atom
-        if (activeAtomIdx !== null) {
-            let type = currentBondType;
-            if (type === null) {
-                // If both are aromatic, default to aromatic bond (1.5)
-                if (atoms[activeAtomIdx].isAromatic && atoms[atomIdx].isAromatic) {
-                    type = 1.5;
-                } else {
-                    type = 1;
-                }
-            }
-            bonds.push({ from: activeAtomIdx, to: atomIdx, type: type });
-            currentBondType = null;
+        let type = rawBond.bo !== undefined ? rawBond.bo : (defaultBond.bo !== undefined ? defaultBond.bo : 1);
+        if (aromaticBonds.has(bondIdx)) {
+            type = 1.5;
         }
         
-        activeAtomIdx = atomIdx;
-    }
-    
-    // Populate neighbors
-    for (let bond of bonds) {
-        atoms[bond.from].neighbors.push({ id: bond.to, type: bond.type });
-        atoms[bond.to].neighbors.push({ id: bond.from, type: bond.type });
-    }
+        atoms[from].neighbors.push({ id: to, type: type });
+        atoms[to].neighbors.push({ id: from, type: type });
+    });
     
     return atoms;
 }
+
 
 /**
  * Calculates hydrogen count of a specific atom (incorporating implicit / explicit H).

@@ -1,5 +1,17 @@
 // CPCA Calculator Main Frontend Script
 
+// Initialize RDKit-JS WebAssembly module
+if (window.initRDKitModule) {
+    window.initRDKitModule().then(function(instance) {
+        window.RDKit = instance;
+        console.log("RDKit-JS successfully initialized. Version: " + instance.version());
+    }).catch(function(err) {
+        console.error("Failed to initialize RDKit-JS:", err);
+    });
+} else {
+    console.error("initRDKitModule not found. Verify CDN is loaded correctly.");
+}
+
 let activeTab = 'auto'; // 'auto' or 'manual'
 let activeSubTab = 'mfds'; // 'mfds', 'fda', or 'predict'
 let lastAutoResult = null;
@@ -1087,33 +1099,45 @@ function redrawCanvas() {
 }
 
 /**
- * Draws the molecular structure using SmilesDrawer
+ * Draws the molecular structure using RDKit-JS and highlights the nitrosamine group
  */
 function drawSmilesStructure(smiles, placeholder, canvas, result) {
-    if (result.success && window.SmilesDrawer) {
+    if (result.success && window.RDKit) {
         placeholder.style.display = 'none';
         canvas.style.display = 'block';
         
+        let mol = null;
+        let qmol = null;
         try {
-            const smilesDrawer = new SmilesDrawer.Drawer({
-                width: 400,
-                height: 300,
-                bondThickness: 1.6,
-                bondLength: 16,
-                fontSizeLarge: 14,
-                fontSizeSmall: 10,
-                padding: 15
-            });
-            
-            window.SmilesDrawer.parse(smiles, (tree) => {
-                smilesDrawer.draw(tree, 'smilesCanvas', 'light', false);
-            }, (err) => {
-                console.error("SmilesDrawer Drawing Error: ", err);
+            mol = window.RDKit.get_mol(smiles);
+            if (!mol) {
                 showDrawingError();
-            });
+                return;
+            }
+            
+            // Nitrosamine pattern query for highlight: O=NN
+            qmol = window.RDKit.get_qmol("O=NN");
+            let matchDetails = "";
+            if (qmol) {
+                matchDetails = mol.get_substruct_match(qmol);
+            }
+            
+            // Clear canvas context
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw to canvas with highlights if nitrosamine found
+            if (matchDetails && matchDetails !== "{}" && matchDetails !== "") {
+                mol.draw_to_canvas_with_highlights(canvas, matchDetails);
+            } else {
+                mol.draw_to_canvas(canvas, -1, -1);
+            }
         } catch (e) {
-            console.error("Drawing instantiation error: ", e);
+            console.error("RDKit structure drawing error: ", e);
             showDrawingError();
+        } finally {
+            if (mol) mol.delete();
+            if (qmol) qmol.delete();
         }
     } else {
         // Clear canvas and show placeholder on failure
@@ -1123,7 +1147,7 @@ function drawSmilesStructure(smiles, placeholder, canvas, result) {
         placeholder.style.display = 'flex';
         placeholder.innerHTML = `
             <i class="fa-solid fa-triangle-exclamation" style="color: var(--color-danger)"></i>
-            <p>구조를 시각화할 수 없습니다.<br><small>${result.error || '유효하지 않은 SMILES'}</small></p>
+            <p>구조를 시각화할 수 없습니다.<br><small>${result.error || '유효하지 않은 SMILES 또는 화학 엔진 로딩 중'}</small></p>
         `;
     }
 }
@@ -1198,8 +1222,8 @@ function isSmilesPattern(str) {
     // If it contains spaces
     if (/\s/.test(str)) return false;
     
-    // Non-SMILES alphabet letters
-    const nonSmilesLetters = /[adeghjkmqrtuwxyzADEGHJKLMQTUVWXYZ]/;
+    // Non-SMILES alphabet letters (relaxed to allow H, K, a, d, etc.)
+    const nonSmilesLetters = /[eghjmqrtuwxyzEGJMQRTUVWXY]/;
     
     // halogens like Cl and Br contain 'l' and 'r'. We remove them first
     let clean = str.replace(/Cl/g, '').replace(/Br/g, '');
