@@ -630,6 +630,38 @@ input[type="text"]:focus {
 .badge-cat-4 { background-color: var(--cat-4-color); box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25); }
 .badge-cat-5 { background-color: var(--cat-5-color); box-shadow: 0 4px 10px rgba(6, 182, 212, 0.25); }
 
+/* FDA Source Type Badges */
+.badge-source-cpca {
+    background-color: rgba(14, 165, 233, 0.15);
+    color: #0284c7;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+}
+.badge-source-sar {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #7e22ce;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+}
+.badge-source-interim {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
 .score-badge {
     background-color: #ffffff;
     border: 1px solid var(--color-border);

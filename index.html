@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPCA 계산기 - 니트로사민 불순물 위해성 평가 시스템</title>
+    <title>니트로사민 ADI & 규제 대응 평가 시스템</title>
 
     <!-- Google Fonts -->
     <link
@@ -30,12 +30,12 @@
                     <i class="fa-solid fa-flask-vial"></i>
                 </div>
                 <div>
-                    <h1>CPCA 계산기</h1>
-                    <p class="subtitle">Nitrosamine Impurity Risk Assessor</p>
+                    <h1>니트로사민 ADI & 규제 평가</h1>
+                    <p class="subtitle">Nitrosamine ADI & Regulatory Assessment System</p>
                 </div>
             </div>
             <div class="header-desc">
-                노바티스(Novartis) 오픈소스 알고리즘 기반 니트로사민 발암 가능성 분류 접근법(CPCA) 신속 평가 도구
+                식약처 · FDA 고시 1일 섭취허용량(ADI) 통합 DB (CPCA / SAR / Interim) 및 구조 기반 위해성 평가 시스템
             </div>
         </header>
 
@@ -75,8 +75,9 @@
                         <!-- Sub Tab 1: Mfds (식약처 발표 기준 설정 니트로사민류) -->
                         <div class="sub-tab-content active" id="subTabContentMfds">
                             <p
-                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5;">
-                                식약처가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.
+                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span>식약처가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> MFDS 2026년 8월 공고 기준</span>
                             </p>
 
                             <div class="form-group">
@@ -94,9 +95,18 @@
                         <!-- Sub Tab 2: FDA (FDA 발표 기준 설정 니트로사민류) -->
                         <div class="sub-tab-content" id="subTabContentFda">
                             <p
-                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5;">
-                                FDA가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.
+                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span>FDA가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> FDA 2026년 8월 공고 기준</span>
                             </p>
+
+                            <div class="fda-filter-group" style="display: flex; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center;">
+                                <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); margin-right: 0.2rem;">세부 기준 유형:</span>
+                                <button class="btn btn-sm btn-secondary active" id="fdaFilterAll" onclick="setFdaFilter('ALL')" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">전체 (304건)</button>
+                                <button class="btn btn-sm btn-secondary" id="fdaFilterCpca" onclick="setFdaFilter('CPCA')" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">CPCA (285건)</button>
+                                <button class="btn btn-sm btn-secondary" id="fdaFilterSar" onclick="setFdaFilter('SAR')" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">SAR (10건)</button>
+                                <button class="btn btn-sm btn-secondary" id="fdaFilterInterim" onclick="setFdaFilter('Interim')" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Interim (9건)</button>
+                            </div>
 
                             <div class="form-group">
                                 <label for="fdaSearchInput">불순물 명칭 또는 발생성분명 입력</label>

@@ -1,8 +1,140 @@
 /**
- * MFDS Official Nitrosamine ADI Database (157 entries)
- * Generated from '1일 섭취허용량.xlsx'
+ * MFDS Official Nitrosamine ADI Database (168 entries)
+ * Updated: 2026-08 (공고 월: 2026년 8월)
  */
 window.MFDS_ADI_DATABASE = [
+  {
+    "no": 168,
+    "name": "N-nitroso-mefloquine",
+    "iupac": "(RS)-[2,8-bis(trifluoromethyl)quinolin-4-yl]-[(2R)-1-nitrosopiperidin-2-yl]methanol",
+    "cas": null,
+    "active": "메플로퀸염산염(Mefloquine)",
+    "category": 4.0,
+    "ai": "1500",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 167,
+    "name": "N-nitroso-hydroxyzine Impurity A",
+    "iupac": "1-((4-Chlorophenyl)(phenyl)methyl)-4-nitrosopiperazine",
+    "cas": "2005-04-1",
+    "active": "히드록시진(Hydroxyzine)",
+    "category": 3.0,
+    "ai": "400",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 166,
+    "name": "N-nitroso-hydroxychloroquine EP Impurity C",
+    "iupac": "N-(4-((7-Chloroquinolin-4-yl)amino)pentyl)-N-(2-hydroxyethyl)nitrous amide",
+    "cas": null,
+    "active": "히드록시클로로퀸(Hydroxychloroquine)",
+    "category": 2.0,
+    "ai": "100",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 165,
+    "name": "N-nitroso-propafenone impurity B",
+    "iupac": "(R,E)-N-(3-(2-cinnamoylphenoxy)-2-hydroxypropyl)-N-propylnitrous amide",
+    "cas": null,
+    "active": "프로파페논(Propafenone)",
+    "category": 2.0,
+    "ai": "100",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 164,
+    "name": "N-nitroso-desmethyl-ulipristal acetate (NDUPA)",
+    "iupac": "[(8S,11R,13S,14S,17R)-17-acetyl-13-methyl-11-[4-[methyl(nitroso)amino]phenyl]-3-oxo-1,2,6,7,8,11,12,14,15,16-decahydrocyclopenta[a]phenanthren-17-yl] acetate",
+    "cas": null,
+    "active": "울리프리스탈아세테이트(Ulipristal Acetate)",
+    "category": 2.0,
+    "ai": "100",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 163,
+    "name": "N-nitroso-venlafaxine EP Impurity H",
+    "iupac": "N-(2-(1-Hydroxycyclohexyl)-2-(4-methoxyphenyl)ethyl)-N-(4-methoxyphenethyl)nitrous amide",
+    "cas": null,
+    "active": "벤라팍신(Venlafaxine)",
+    "category": 2.0,
+    "ai": "100",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 162,
+    "name": "N-nitroso-methylethanolamine (NMELA)",
+    "iupac": "N-(2-hydroxyethyl)-N-methylnitrous amide",
+    "cas": "26921-68-6",
+    "active": "네포팜(Nefopam)",
+    "category": 2.0,
+    "ai": "100",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 161,
+    "name": "N-nitroso-hydroxychloroquine EP Impurity D",
+    "iupac": "N-(4-((7-Chloroquinolin-4-yl)amino)pentyl)-N-ethylnitrous amide",
+    "cas": null,
+    "active": "히드록시클로로퀸(Hydroxychloroquine)",
+    "category": 1.0,
+    "ai": "26.5",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 160,
+    "name": "N-nitroso-terbinafine degradant(NTD, NHMA)",
+    "iupac": "N-[(2E)-6,6-dimethyl-2-hepten-4-yn-1-yl]-N-nitrosomethanamine",
+    "cas": null,
+    "active": "테르비나핀(Terbinafine)",
+    "category": 1.0,
+    "ai": "26.5",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 159,
+    "name": "N-nitroso-desmethyl-almotriptan",
+    "iupac": "N-methyl-N-[2-[5-(pyrrolidin-1-ylsulfonylmethyl)-1H-indol-3-yl]ethyl]nitrous amide",
+    "cas": null,
+    "active": "알모트립탄(Almotriptan)",
+    "category": 1.0,
+    "ai": "26.5",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
+  {
+    "no": 158,
+    "name": "N-nitroso-venlafaxine EP Impurity D",
+    "iupac": "N-(2-benzoyl-4-chlorophenyl)-N-methylnitrous amide",
+    "cas": "51145-18-7",
+    "active": "벤라팍신(Venlafaxine)",
+    "category": 1.0,
+    "ai": "26.5",
+    "remark": null,
+    "date": "2026-08",
+    "publishDate": "2026년 8월 공고"
+  },
   {
     "no": 157,
     "name": "N-nitroso-N-desmethyl roxithromycin",
@@ -11,8 +143,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "록시트로마이신(Roxithromycin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2026-06-24"
+    "remark": null,
+    "date": "2026-06-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 156,
@@ -20,10 +153,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-[[5-(2-fluorophenyl)-1-pyridin-3-ylsulfonylpyrrol-3-yl]methyl]-N-methylnitrous amide",
     "cas": "2932441-73-9",
     "active": "보노프라잔(Vonoprazan)",
-    "category": NaN,
+    "category": null,
     "ai": "96",
     "remark": "SAR/read-across, 참조물질 NDMA",
-    "date": "2026-05-18"
+    "date": "2026-05-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 155,
@@ -33,8 +167,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "카르베딜롤(Carvedilol)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 154,
@@ -44,8 +179,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "올란자핀(Olanzapine)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 153,
@@ -55,8 +191,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "에페드린(Ephedrine)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 152,
@@ -66,8 +203,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "에보칼세트(Evocalcet)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 151,
@@ -77,8 +215,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "반코마이신(Vancomycin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 150,
@@ -88,8 +227,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "메글루민(Meglumine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 149,
@@ -99,30 +239,33 @@ window.MFDS_ADI_DATABASE = [
     "active": "로피니롤(Ropinirole)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 148,
-    "name": "N-nitroso-4-phenylpiperazine ",
+    "name": "N-nitroso-4-phenylpiperazine",
     "iupac": "1-nitroso-4-phenylpiperazine",
     "cas": "14340-33-1",
     "active": "레보드로프로피진(Levodropropizine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 147,
     "name": "N-nitroso-desmethyl-lercanidipine impurity C (EP)",
-    "iupac": "3-(1-((3,3-diphenylpropyl)(nitroso)amino)-2-methylpropan-2-yl) 5-methyl 2,6-dimethyl-4-(3-nitrophenyl) pyridine-3,5-dicarboxylate ",
+    "iupac": "3-(1-((3,3-diphenylpropyl)(nitroso)amino)-2-methylpropan-2-yl) 5-methyl 2,6-dimethyl-4-(3-nitrophenyl) pyridine-3,5-dicarboxylate",
     "cas": null,
     "active": "레르카니디핀(Lercanidipine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 146,
@@ -132,8 +275,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "레르카니디핀(Lercanidipine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2026-03-24"
+    "remark": null,
+    "date": "2026-03-24",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 145,
@@ -141,21 +285,23 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N,N-bis[[3-[[3-(3-chloro-5-cyanophenoxy)-2-oxo-4-(trifluoromethyl)-1-pyridinyl]methyl]-4-methyl-5-oxo-1,2,4-triazol-1-yl]methyl]nitrous amide",
     "cas": null,
     "active": "도라비린(Doravirine)",
-    "category": NaN,
+    "category": null,
     "ai": "1500",
     "remark": "AMES 음성",
-    "date": "2026-01-02"
+    "date": "2026-01-02",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 144,
-    "name": "N-nitroso-posaconazole Impurity 1 ",
+    "name": "N-nitroso-posaconazole Impurity 1",
     "iupac": "1-(4-(((3R,5R)-5-((1H-1,2,4-triazol-1-yl)methyl)-5-(2,4-difluorophenyl)tetrahydrofuran-3-yl)methoxy)phenyl)-4-nitrosopiperazine",
     "cas": null,
     "active": "포사코나졸(Posaconazole)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 143,
@@ -165,8 +311,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "트리엔틴(Trientine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 142,
@@ -176,8 +323,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "졸미트립탄(Zolmitriptan)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 141,
@@ -187,8 +335,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아티카인(Articaine)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 140,
@@ -198,8 +347,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아카보즈(Acarbose)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 139,
@@ -209,8 +359,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아가트로반(Argatroban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 138,
@@ -220,8 +371,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "시프로플록사신(Ciprofloxacin)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 137,
@@ -231,8 +383,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "비베그론(Vibegron)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 136,
@@ -240,10 +393,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-methyl-N-(4-oxo-4-pyridin-3-ylbutyl)nitrous amide",
     "cas": "64091-91-4",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-08-20"
+    "remark": null,
+    "date": "2025-08-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 135,
@@ -251,10 +405,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "6-chloro-4-nitroso-1,1-dioxo-2,3-dihydro-1λ6,2,4-benzothiadiazine-7-sulfonamide",
     "cas": null,
     "active": "히드로클로로티아지드(Hydrochlorothiazide)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2023-12-13"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, in vivo",
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 134,
@@ -262,10 +417,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-methyl-N-[3-phenyl-3-[4-(trifluoromethyl)phenoxy]propyl]nitrous amide",
     "cas": "150494-06-7",
     "active": "플루옥세틴(Fluoxetine)",
-    "category": NaN,
+    "category": null,
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
-    "date": "2023-12-13"
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 133,
@@ -275,8 +431,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "플레카이니드(Flecainide)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 132,
@@ -286,8 +443,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "프로프라놀롤(Propranolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 131,
@@ -297,8 +455,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "프로파페논(Propafenone)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 130,
@@ -308,8 +467,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "프로바트립탄(Frovatriptan)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 129,
@@ -319,8 +479,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "프라미펙솔(Pramipexole)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 128,
@@ -330,8 +491,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "푸로세미드(Furosemide)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 127,
@@ -339,21 +501,23 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-[4-[[(2-amino-5-formyl-1,4,5,6,7,8-hexahydro-4-oxo-6-pteridinyl)methyl](nitroso)amino]benzoyl]-L-glutamic acid",
     "cas": null,
     "active": "폴리네이트칼슘(Calcium folinate/ Calcium levofolinate)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2024-03-20"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, in vivo",
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 126,
     "name": "N-nitroso-felodipine",
-    "iupac": " 5-O-ethyl 3-O-methyl 4-(2,3-dichlorophenyl)-2,6-dimethyl-1-nitroso-4H-pyridine-3,5-dicarboxylate",
+    "iupac": "5-O-ethyl 3-O-methyl 4-(2,3-dichlorophenyl)-2,6-dimethyl-1-nitroso-4H-pyridine-3,5-dicarboxylate",
     "cas": null,
     "active": "펠로디핀(Felodipine)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 125,
@@ -363,8 +527,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "페린도프릴(Perindopril)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 124,
@@ -374,8 +539,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "페닐레프린(Phenylephrine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 123,
@@ -383,10 +549,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "(3S,4R)-3-(1,3-benzodioxol-5-yloxymethyl)-4-(4-fluorophenyl)-1-nitrosopiperidine",
     "cas": "2361294-43-9",
     "active": "파록세틴(Paroxetine)",
-    "category": NaN,
+    "category": null,
     "ai": "1300",
     "remark": "SAR/read-across, 참조물질 NPIP",
-    "date": "2023-12-13"
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 122,
@@ -396,8 +563,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "티카그렐러(Ticagrelor)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-01-18"
+    "remark": null,
+    "date": "2024-01-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 121,
@@ -407,8 +575,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "트리메타지딘(Trimetazidine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 120,
@@ -418,8 +587,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "트리메부틴(Trimebutine)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 119,
@@ -429,8 +599,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "트라마돌(Tramadol)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 118,
@@ -440,19 +611,21 @@ window.MFDS_ADI_DATABASE = [
     "active": "테트라카인(Tetracaine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-01-18"
+    "remark": null,
+    "date": "2024-01-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 117,
-    "name": "N-nitroso-terbinafine impurity A ",
+    "name": "N-nitroso-terbinafine impurity A",
     "iupac": "N-methyl-N-(napthalen-1-ylmethyl)nitrous amide",
     "cas": "296760-88-8",
     "active": "테르비나핀(Terbinafine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 116,
@@ -462,8 +635,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "테르비나핀(Terbinafine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 115,
@@ -473,19 +647,21 @@ window.MFDS_ADI_DATABASE = [
     "active": "테라조신(Terazosin)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 114,
     "name": "N-nitroso terazosin impurity C",
-    "iupac": "6,7-Dimethoxy-2-(1-piperazinyl)-4-quinazolinamine; 2-(1-Piperazinyl)-4-amino-6,7-dimethoxyquinazoline",
-    "cas": "60547-97-9",
+    "iupac": "6,7-dimethoxy-2-(4-nitrosopiperazin-1-yl)quinazolin-4-amine",
+    "cas": null,
     "active": "테라조신(Terazosin)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 113,
@@ -495,8 +671,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "탐스로신(Tamsulosin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 112,
@@ -506,8 +683,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "타이가사이클린(Tigecycline)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 111,
@@ -517,8 +695,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "타목시펜(Tamoxifen)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 110,
@@ -528,8 +707,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "클로자핀(Cloazapine)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 109,
@@ -539,8 +719,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "클로자핀(Clozapine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 108,
@@ -548,10 +729,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-[(2S,3R,4S,6R)-2-[[(3R,4S,5S,6R,7R,9R,11R,12R,13S,14R)-14-ethyl-12,13-dihydroxy-4-[(2R,4R,5S,6S)-5-hydroxy-4-methoxy-4,6-dimethyloxan-2-yl]oxy-7-methoxy-3,5,7,9,11,13-hexamethyl-2,10-dioxo-oxacyclotetradec-6-yl]oxy]-3-hydroxy-6-methyloxan-4-yl]-N-methylnitrous amide",
     "cas": null,
     "active": "클래리트로마이신(Clarithromycin)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2026-07-01"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, SAR/read-across, 참조물질 N-nitroso-N-desmethyl-azithromycin",
+    "date": "2026-07-01",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 107,
@@ -561,8 +743,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "쿠에티아핀(Quetiapine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 106,
@@ -570,10 +753,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "2-(2-(4-nitrosopiperazin-1-yl)ethoxy)ethan-1-ol",
     "cas": "73486-81-4",
     "active": "쿠에티아핀(Quetiapine)",
-    "category": NaN,
+    "category": null,
     "ai": "1500",
     "remark": "AMES 음성",
-    "date": "2024-03-20"
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 105,
@@ -583,8 +767,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "케타민(Ketamine)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 104,
@@ -594,8 +779,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "카스포펀진(Caspofungin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 103,
@@ -605,30 +791,33 @@ window.MFDS_ADI_DATABASE = [
     "active": "인다파미드(Indapamide)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 102,
-    "name": "N-nitroso-iminodiacetic acid ",
+    "name": "N-nitroso-iminodiacetic acid",
     "iupac": "2-[carboxymethyl(nitroso)amino] acetic acid",
     "cas": "25081-31-6",
     "active": "이소소르비드 모노니트레이트(Isosorbide mononitrate)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 101,
-    "name": "N-nitroso-ethylenediamine-triacetic acid ",
+    "name": "N-nitroso-ethylenediamine-triacetic acid",
     "iupac": "2-[carboxymethyl-[2-[carboxymethyl(nitroso)amino] ethyl]amino]acetic acid",
     "cas": "862542-34-5",
     "active": "이소소르비드 모노니트레이트(Isosorbide mononitrate)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 100,
@@ -638,8 +827,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "이매티닙(Imatinib)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 99,
@@ -649,8 +839,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "오르페나드린(Orphenadrine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 98,
@@ -660,8 +851,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "엽산/폴산(Folic acid)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 97,
@@ -671,8 +863,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "에피네프린(Epinephrine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 96,
@@ -682,19 +875,21 @@ window.MFDS_ADI_DATABASE = [
     "active": "에스몰롤(Esmolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-01-18"
+    "remark": null,
+    "date": "2024-01-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 95,
     "name": "N-nitroso-desmethyl-edoxaban",
-    "iupac": "N-1-(5-chloropyridin-2-yl)-N2-((1S,2R,4S)-4-(dimethylcarbamoyl)-2-(5-nitroso-4,5,6,7-tetrahydrothiazolo[5,4-c]pyridine-2-carboxamido) cyclohexyl) oxalamide ",
+    "iupac": "N-1-(5-chloropyridin-2-yl)-N2-((1S,2R,4S)-4-(dimethylcarbamoyl)-2-(5-nitroso-4,5,6,7-tetrahydrothiazolo[5,4-c]pyridine-2-carboxamido) cyclohexyl) oxalamide",
     "cas": null,
     "active": "에독사반(Edoxaban)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 94,
@@ -704,8 +899,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "에날라프릴(Enalapril)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 93,
@@ -713,10 +909,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-[(2-amino-3,5-dibromophenyl)methyl]-N-[4-hydroxycyclohexyl]nitrous amide",
     "cas": null,
     "active": "암브록솔(Ambroxol)",
-    "category": NaN,
+    "category": null,
     "ai": "1500",
     "remark": "AMES 음성",
-    "date": "2024-03-20"
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 92,
@@ -726,8 +923,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "알로글립틴(Alogliptin)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-01-18"
+    "remark": null,
+    "date": "2024-01-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 91,
@@ -737,8 +935,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아픽사반(Apixaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 90,
@@ -746,10 +945,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N-methyl-N-[(3R)-3-(2-methylphenoxy)-3-phenylpropyl]nitrous amide",
     "cas": null,
     "active": "아토목세틴(Atomoxetine)",
-    "category": NaN,
+    "category": null,
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
-    "date": "2024-03-20"
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 89,
@@ -759,8 +959,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아테놀롤(Atenolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 88,
@@ -768,10 +969,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "(2R,3S,4R,5R,8R,10R,11R,12S,13S,14R)-2-ethyl-3,4,10-trihydroxy-13-[(2R,4R,5S,6S)-5-hydroxy-4-methoxy-4,6-dimethyloxan-2-yl]oxy-11-[(2S,3R,4S,6R)-3-hydroxy-6-methyl-4-(methylamino)oxan-2-yl]oxy-3,5,6,8,10,12,14-heptamethyl-1-oxa-6-azacyclopentadecan-15-one",
     "cas": null,
     "active": "아지스로마이신(Azithromycin)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2023-12-13"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, in vivo",
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 87,
@@ -779,10 +981,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "(2R, 3S, 4R, 5R, 8R, 10R, 11R, 12S, 13S, 14R)-11-(((2S, 3R, 4S, 6R)-4-(dimethylamino)-3-hydroxy-6-methyltetrahydro-2H-pyran-2-yl)oxy)-2-ethyl-3, 4, 10-trihydroxy-13-(((2R, 4R, 5S, 6S)-5-hydroxy-4-methoxy-4, 6-dimethyltetrahydro-2H-pyran-2-yl)oxy)-3, 5, 8, 10, 12, 14-hexamethyl-6-nitroso-1-oxa-6-azacyclopentadecan-15-one",
     "cas": null,
     "active": "아지스로마이신(Azithromycin)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2023-12-13"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, in vivo",
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 86,
@@ -792,8 +995,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아젤라스틴(Azelastine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 85,
@@ -803,8 +1007,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "아리피프라졸(Aripiprazole)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 84,
@@ -814,8 +1019,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "실로도신(Silodosin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 83,
@@ -825,8 +1031,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "실라자프릴(Cilazapril)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 82,
@@ -836,8 +1043,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "실데나필(Sildenafil)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 81,
@@ -847,8 +1055,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "신나리진(cinnarizine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-01-09"
+    "remark": null,
+    "date": "2025-01-09",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 80,
@@ -856,10 +1065,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "1-cyclopropyl-6-fluoro-7-(4-nitrosopiperazin-1-yl)-4-oxoquinoline-3-carboxylic acid",
     "cas": "864443-44-7",
     "active": "시프로플록사신(Ciprofloxacin)",
-    "category": NaN,
-    "ai": "ICH Q3A/Q3B에 따라 관리",
-    "remark": "비변이원성 불순물",
-    "date": "2025-06-12"
+    "category": null,
+    "ai": "33",
+    "remark": "비변이원성 불순물, in vivo",
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 79,
@@ -869,8 +1079,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "시탈로프람(Citalopram)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 78,
@@ -880,8 +1091,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "시타글립틴(Sitagliptin)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2024-10-25"
+    "remark": null,
+    "date": "2024-10-25",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 77,
@@ -891,8 +1103,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "시아노코발라민(Cyanocobalamine)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 76,
@@ -902,8 +1115,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "시나칼세트(Cinacalcet)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-01-18"
+    "remark": null,
+    "date": "2024-01-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 75,
@@ -913,8 +1127,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "슈도에페드린(Pseudoephedrine)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 74,
@@ -924,8 +1139,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "수마프립탄(Sumatriptan)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 73,
@@ -935,8 +1151,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "소타롤(Sotalol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 72,
@@ -946,8 +1163,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "셀리프롤롤(Celiprolol)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 71,
@@ -957,8 +1175,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "설트랄린(Sertraline)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 70,
@@ -968,8 +1187,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "살부타몰(Salbutamol)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 69,
@@ -979,8 +1199,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "빌다글립틴(Vildagliptin)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 68,
@@ -990,8 +1211,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "빌다글립틴(Vildagliptin)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 67,
@@ -1001,8 +1223,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "비소프롤롤(Bisoprolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 66,
@@ -1012,8 +1235,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "부프로피온(Bupropion)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 65,
@@ -1023,8 +1247,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "부스피론(Buspirone)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 64,
@@ -1034,8 +1259,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "보티옥세틴(Vortioxetine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 63,
@@ -1045,8 +1271,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "벤지다민(Benzydamine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 62,
@@ -1056,8 +1283,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "베탁솔롤(Betaxolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 61,
@@ -1067,8 +1295,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "베타히스틴(Betahisitne)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 60,
@@ -1078,8 +1307,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "발사르탄(Valsartan)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 59,
@@ -1089,8 +1319,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "발라시클로비르(Valacyclovir)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 58,
@@ -1100,8 +1331,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "발라시클로비르(Valacyclovir)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 57,
@@ -1111,8 +1343,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "바레니클린(Varenicline)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-06-21"
+    "remark": null,
+    "date": "2024-06-21",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 56,
@@ -1122,8 +1355,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "미르타자핀(Mirtazapine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 55,
@@ -1133,8 +1367,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "미라베그론(Mirabegron)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 54,
@@ -1144,8 +1379,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "미라베그론(Mirabegron)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 53,
@@ -1155,8 +1391,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "미라베그론(Mirabegron)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 52,
@@ -1166,8 +1403,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "목시플록사신(Moxifloxacin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 51,
@@ -1177,8 +1415,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "목시플록사신(Moxifloxacin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 50,
@@ -1186,10 +1425,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "methyl 2-(1-nitrosopiperidin-2-yl)-2-phenylacetate",
     "cas": "55557-03-4",
     "active": "메틸페니데이트(Methylphenidate)",
-    "category": NaN,
+    "category": null,
     "ai": "1300",
     "remark": "SAR/read-across, 참조물질 NPIP",
-    "date": "2023-12-13"
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 49,
@@ -1199,8 +1439,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "메틸페니데이트(Methylphenidate)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 48,
@@ -1210,8 +1451,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "메토프롤롤(Metoprolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 47,
@@ -1221,8 +1463,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "메로페넴(Meropenem)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 46,
@@ -1232,19 +1475,21 @@ window.MFDS_ADI_DATABASE = [
     "active": "리토나비르(Ritonavir), 코비시스타트(Cobicistat)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 45,
-    "name": "N-nitroso-desformyl-riociguat ",
-    "iupac": "N-(4,6-diamino-2-(1-(2-fluorobenzyl)-1H-pyrazolo[3,4-b]pyridin-3-yl)pyrimidin-5-yl)-N-methylnitrous ",
+    "name": "N-nitroso-desformyl-riociguat",
+    "iupac": "N-(4,6-diamino-2-(1-(2-fluorobenzyl)-1H-pyrazolo[3,4-b]pyridin-3-yl)pyrimidin-5-yl)-N-methylnitrous",
     "cas": null,
     "active": "리오시구앗(Riociguat)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 44,
@@ -1254,8 +1499,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리시노프릴(Linsinopril)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 43,
@@ -1265,8 +1511,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리보시클립(Ribociclib)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 42,
@@ -1276,8 +1523,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바스티그민(Rivastigmine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 41,
@@ -1287,8 +1535,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바록사반(Rivaroxaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 40,
@@ -1298,8 +1547,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바록사반(Rivaroxaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 39,
@@ -1309,8 +1559,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바록사반(Rivaroxaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 38,
@@ -1320,8 +1571,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바록사반(Rivaroxaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 37,
@@ -1331,8 +1583,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리바록사반(Rivaroxaban)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 36,
@@ -1342,8 +1595,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "리도카인(Lidocaine)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 35,
@@ -1353,8 +1607,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "류코보린(Leucovorin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 34,
@@ -1364,8 +1619,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "로피바카인(Ropivacaine)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 33,
@@ -1375,8 +1631,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "레보플록사신(Levofloxacin)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 32,
@@ -1386,8 +1643,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "라사길린(Rasagiline)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 31,
@@ -1397,8 +1655,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "라베타롤(Labetalol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 30,
@@ -1408,8 +1667,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "라미프릴(Ramipril)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 29,
@@ -1419,8 +1679,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "라놀라진(Ranolazine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 28,
@@ -1430,8 +1691,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "디클로페낙(Diclofenac)",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 27,
@@ -1441,8 +1703,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "디멘히드리네이트(Dimenhydrinate), 디펜히드라민(Diphenhydramine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-01-09"
+    "remark": null,
+    "date": "2025-01-09",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 26,
@@ -1450,10 +1713,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "(S)-N-methyl-N-(3-(naphthalen-1-yloxy)-3-(thiophen-2-yl)propyl)nitrous amide",
     "cas": null,
     "active": "둘록세틴(Duloxetine)",
-    "category": NaN,
+    "category": null,
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
-    "date": "2023-12-13"
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 25,
@@ -1463,8 +1727,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "독실아민(Doxylamine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 24,
@@ -1474,8 +1739,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "독시사이클린(Doxycycline)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 23,
@@ -1485,8 +1751,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "독세핀(Doxepin)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 22,
@@ -1496,8 +1763,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "도르졸라미드(Dorzolamide)",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 21,
@@ -1507,8 +1775,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "덱스트로메토르판(Dextromethorphan)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 20,
@@ -1518,8 +1787,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "데스벤라팍신(Desvenlafaxine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 19,
@@ -1529,8 +1799,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "데스로라타딘(Desloratadine)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 18,
@@ -1538,10 +1809,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "Ethyl3-(2-(((4-(N-((hexyloxy)carbonyl)carbamimidoyl)phenyl)(nitroso)amino)methyl)-1-methyl-N-(pyridin-2-yl)-1H-benzo[d]imidazole-5-carboxamido)propanoate",
     "cas": null,
     "active": "다비가트란(Dabigatran)",
-    "category": NaN,
+    "category": null,
     "ai": "1500",
     "remark": "AMES 음성",
-    "date": "2024-06-21"
+    "date": "2024-06-21",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 17,
@@ -1551,8 +1823,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "닌테다닙(Nintedanib)",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-03-20"
+    "remark": null,
+    "date": "2024-03-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 16,
@@ -1562,8 +1835,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "노르트립틸린(Nortriptyline), 아미트립틸린(Amitriptyline)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2024-11-06"
+    "remark": null,
+    "date": "2024-11-06",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 15,
@@ -1573,8 +1847,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "네비보롤(Nebivolol)",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 14,
@@ -1582,10 +1857,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "2-nitroso-3,3a,4,5,6,6a-hexahydro-1H-cyclopenta[c]pyrrole",
     "cas": "54786-86-6",
     "active": "글리클라지드(Gliclazide)",
-    "category": NaN,
+    "category": null,
     "ai": "1700",
     "remark": "SAR/read-across, 참조물질 NPYR",
-    "date": "2023-12-13"
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 13,
@@ -1595,8 +1871,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "갈란타민(Galantamine)",
     "category": 1.0,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2025-06-12"
+    "remark": null,
+    "date": "2025-06-12",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 12,
@@ -1606,8 +1883,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "-",
     "category": 2.0,
     "ai": "100",
-    "remark": NaN,
-    "date": "2025-02-18"
+    "remark": null,
+    "date": "2025-02-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 11,
@@ -1617,8 +1895,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "-",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2025-01-09"
+    "remark": null,
+    "date": "2025-01-09",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 10,
@@ -1628,8 +1907,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "-",
     "category": 4.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 9,
@@ -1639,8 +1919,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "-",
     "category": 3.0,
     "ai": "400",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 8,
@@ -1650,8 +1931,9 @@ window.MFDS_ADI_DATABASE = [
     "active": "-",
     "category": 5.0,
     "ai": "1500",
-    "remark": NaN,
-    "date": "2024-12-04"
+    "remark": null,
+    "date": "2024-12-04",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 7,
@@ -1659,10 +1941,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "1-nitrosopyrrolidine",
     "cas": "930-55-2",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "1700",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 6,
@@ -1670,10 +1953,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "1-nitrosopiperidine",
     "cas": "100-75-4",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "1300",
-    "remark": NaN,
-    "date": "2023-12-13"
+    "remark": null,
+    "date": "2023-12-13",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 5,
@@ -1681,10 +1965,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "4-nitrosomorpholine",
     "cas": "59-89-2",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "127",
-    "remark": NaN,
-    "date": "2022-02-17"
+    "remark": null,
+    "date": "2022-02-17",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 4,
@@ -1692,10 +1977,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N,N-dipropylnitrous amide",
     "cas": "621-64-7",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "26.5",
     "remark": "SAR/read-across, 참조물질 NDEA",
-    "date": "2021-11-18"
+    "date": "2021-11-18",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 3,
@@ -1703,10 +1989,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N,N-dibutylnitrous amide",
     "cas": "924-16-3",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "26.5",
     "remark": "SAR/read-across, 참조물질 NDEA",
-    "date": "2021-11-09"
+    "date": "2021-11-09",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 2,
@@ -1714,10 +2001,11 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N,N-diethylnitrous amide",
     "cas": "55-18-5",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "26.5",
-    "remark": NaN,
-    "date": "2018-11-20"
+    "remark": null,
+    "date": "2018-11-20",
+    "publishDate": "2026년 8월 공고"
   },
   {
     "no": 1,
@@ -1725,9 +2013,10 @@ window.MFDS_ADI_DATABASE = [
     "iupac": "N,N-dimethylnitrous amide",
     "cas": "62-75-9",
     "active": "-",
-    "category": NaN,
+    "category": null,
     "ai": "96",
-    "remark": NaN,
-    "date": "2018-08-06"
+    "remark": null,
+    "date": "2018-08-06",
+    "publishDate": "2026년 8월 공고"
   }
 ];

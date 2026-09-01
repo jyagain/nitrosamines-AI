@@ -1,0 +1,310 @@
+{
+  "MFDS 1일 섭취허용량.xlsx": {
+    "total_rows": 169,
+    "sample_rows": [
+      [
+        "연번",
+        "불순물 명칭",
+        "IUPAC 명",
+        "CAS No.",
+        "발생 성분",
+        "CPCA 분류",
+        "섭취허용량(ng/일)",
+        "비고",
+        "공개일자"
+      ],
+      [
+        "168",
+        "N-nitroso-mefloquine",
+        "(RS)-[2,8-bis(trifluoromethyl)quinolin-4-yl]-[(2R)-1-nitrosopiperidin-2-yl]methanol",
+        null,
+        "메플로퀸염산염(Mefloquine)",
+        "4",
+        "1500",
+        null,
+        null
+      ],
+      [
+        "167",
+        "N-nitroso-hydroxyzine Impurity A",
+        "1-((4-Chlorophenyl)(phenyl)methyl)-4-nitrosopiperazine",
+        "2005-04-1",
+        "히드록시진(Hydroxyzine)",
+        "3",
+        "400",
+        null,
+        null
+      ],
+      [
+        "166",
+        "N-nitroso-hydroxychloroquine EP Impurity C",
+        "N-(4-((7-Chloroquinolin-4-yl)amino)pentyl)-N-(2-hydroxyethyl)nitrous amide",
+        null,
+        "히드록시클로로퀸(Hydroxychloroquine)",
+        "2",
+        "100",
+        null,
+        null
+      ],
+      [
+        "165",
+        "N-nitroso-propafenone impurity B ",
+        "(R,E)-N-(3-(2-cinnamoylphenoxy)-2-hydroxypropyl)-N-propylnitrous amide",
+        null,
+        "프로파페논(Propafenone)",
+        "2",
+        "100",
+        null,
+        null
+      ],
+      [
+        "164",
+        "N-nitroso-desmethyl-ulipristal acetate (NDUPA)",
+        "[(8S,11R,13S,14S,17R)-17-acetyl-13-methyl-11-[4-[methyl(nitroso)amino]phenyl]-3-oxo-1,2,6,7,8,11,12,14,15,16-decahydrocyclopenta[a]phenanthren-17-yl] acetate",
+        null,
+        "울리프리스탈아세테이트(Ulipristal Acetate)",
+        "2",
+        "100",
+        null,
+        null
+      ],
+      [
+        "163",
+        "N-nitroso-venlafaxine EP Impurity H",
+        "N-(2-(1-Hydroxycyclohexyl)-2-(4-methoxyphenyl)ethyl)-N-(4-methoxyphenethyl)nitrous amide",
+        null,
+        "벤라팍신(Venlafaxine)",
+        "2",
+        "100",
+        null,
+        null
+      ],
+      [
+        "162",
+        "N-nitroso-methylethanolamine (NMELA)",
+        "N-(2-hydroxyethyl)-N-methylnitrous amide",
+        "26921-68-6",
+        "네포팜(Nefopam)",
+        "2",
+        "100",
+        null,
+        null
+      ],
+      [
+        "161",
+        "N-nitroso-hydroxychloroquine EP Impurity D",
+        "N-(4-((7-Chloroquinolin-4-yl)amino)pentyl)-N-ethylnitrous amide",
+        null,
+        "히드록시클로로퀸(Hydroxychloroquine)",
+        "1",
+        "26.5",
+        null,
+        null
+      ]
+    ]
+  },
+  "CDER Nitrosamine Impurity Acceptable Intake Limits  FDA CPCA.xlsx": {
+    "total_rows": 286,
+    "sample_rows": [
+      [
+        "연번",
+        "불순물 명칭",
+        "발생성분",
+        "CPCA 분류",
+        "섭취허용량"
+      ],
+      [
+        1,
+        "N-nitroso-abacavir",
+        "Abacavir",
+        5,
+        "1500 ng/day"
+      ],
+      [
+        2,
+        "N-nitroso-acarbose",
+        "Acarbose",
+        5,
+        "1500 ng/day"
+      ],
+      [
+        3,
+        "N-nitroso-acebutolol",
+        "Acebutolol",
+        4,
+        "1500 ng/day"
+      ],
+      [
+        4,
+        "N-nitroso-albuterol",
+        "Albuterol",
+        5,
+        "1500 ng/day"
+      ],
+      [
+        5,
+        "N-nitroso-desmethyl-almotriptan",
+        "Almotriptan",
+        1,
+        "26.5 ng/day"
+      ],
+      [
+        6,
+        "N-nitroso-desmethyl-amitriptyline",
+        "Amitriptyline",
+        1,
+        "26.5 ng/day"
+      ],
+      [
+        7,
+        "N-nitroso-amlodipine",
+        "Amlodipine",
+        5,
+        "1500 ng/day"
+      ],
+      [
+        8,
+        "N-nitroso-amoxapine",
+        "Amoxapine",
+        3,
+        "400 ng/day"
+      ]
+    ]
+  },
+  "CDER Nitrosamine Impurity Acceptable Intake Limits  FDA SAR.xlsx": {
+    "total_rows": 12,
+    "sample_rows": [
+      [
+        "CDER Nitrosamine Impurity Acceptable Intake Limits | FDA",
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Nitrosamine Name",
+        "Source",
+        "Recommended AI Limit (ng/day)",
+        "Surrogate",
+        "Date Added to Table"
+      ],
+      [
+        "N-nitroso-atomoxetine",
+        "Atomoxetine",
+        100,
+        "4-(methylnitrosoamino)-1-(3-pyridinyl)-1-butanone (NNK)",
+        "12/1/2023"
+      ],
+      [
+        "N-nitroso-berotralstat",
+        "Berotralstat",
+        1500,
+        "Compound specific",
+        "8/6/2026"
+      ],
+      [
+        "N-nitroso-piperazine (NPZ)",
+        "Ciprofloxacin",
+        1300,
+        "N-nitroso-piperidine (NPIP)",
+        "9/4/2024"
+      ],
+      [
+        "N-nitroso-desmethyl-diltiazem",
+        "Diltiazem",
+        100,
+        "4-(methylnitrosoamino)-1-(3-pyridinyl)-1-butanone (NNK)",
+        "1/17/2025"
+      ],
+      [
+        "N-nitroso-duloxetine",
+        "Duloxetine",
+        100,
+        "4-(methylnitrosoamino)-1-(3-pyridinyl)-1-butanone (NNK)",
+        "8/4/2023"
+      ],
+      [
+        "N-nitroso-fluoxetine",
+        "Fluoxetine",
+        100,
+        "4-(methylnitrosoamino)-1-(3-pyridinyl)-1-butanone (NNK)",
+        "10/11/2023"
+      ],
+      [
+        "N-nitroso-methylphenidate",
+        "Methylphenidate",
+        1300,
+        "N-nitroso-piperidine (NPIP)",
+        "9/4/2024"
+      ]
+    ]
+  },
+  "CDER Nitrosamine Impurity Acceptable Intake Limits  FDA interim.xlsx": {
+    "total_rows": 11,
+    "sample_rows": [
+      [
+        "CDER Nitrosamine Impurity Acceptable Intake Limits | FDA",
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Nitrosamine Name",
+        "Source",
+        "Recommended Interim AI Limit (ng/day)",
+        "Recommended Interim Control Limit (ppm)",
+        "Estimated Duration***"
+      ],
+      [
+        "1-methyl-4-nitrosopiperazine (MNP)",
+        "Rifampin (injection and capsules)",
+        "3,000 ng/day",
+        "5 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-ciprofloxacin",
+        "Ciprofloxacin (tablets)",
+        "12,000 ng/day",
+        "8 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-desmethyl-amitriptyline",
+        "Amitriptyline (tablets)",
+        "450 ng/day",
+        "1.5 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-dorzolamide",
+        "Dorzolamide and Timolol",
+        "500 ng/day",
+        "139 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-dorzolamide",
+        "Dorzolamide",
+        "500 ng/day",
+        "139 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-fluoxetine",
+        "Fluoxetine (tablets and capsules)",
+        "7,200 ng/day",
+        "90 ppm",
+        "8/1/2027"
+      ],
+      [
+        "N-nitroso-nortriptyline",
+        "Nortriptyline (capsules)",
+        "600 ng/day",
+        "4 ppm",
+        "8/1/2027"
+      ]
+    ]
+  }
+}

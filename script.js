@@ -564,7 +564,10 @@ function renderResults(container, result) {
         
         casComparisonHtml = `
             <div class="cas-comparison-box ${matchClass}">
-                <div class="comp-title"><i class="fa-solid fa-building-shield"></i> 식약처 발표 기준 불순물 DB 조회 완료 (연번: ${result.casMatch.no})</div>
+                <div class="comp-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.5rem;">
+                    <span><i class="fa-solid fa-building-shield"></i> 식약처 발표 기준 불순물 DB 조회 완료 (연번: ${result.casMatch.no})</span>
+                    <span class="badge" style="background-color: #0284c7; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">MFDS 2026.08 공고 기준</span>
+                </div>
                 <table class="comp-table">
                     <tr>
                         <th>공식 물질명</th>
@@ -581,7 +584,7 @@ function renderResults(container, result) {
                     ${result.casMatch.remark ? `<tr><th>비고 (산출 근거)</th><td colspan="3">${result.casMatch.remark}</td></tr>` : ''}
                     <tr>
                         <th>발표일자</th>
-                        <td>${result.casMatch.date || '해당 없음'}</td>
+                        <td>${result.casMatch.date || '2026-08'}</td>
                         <th>결과 비교</th>
                         <td colspan="3"><strong>${matchText}</strong></td>
                     </tr>
@@ -595,6 +598,8 @@ function renderResults(container, result) {
         const officialCat = result.fdaMatch.category;
         const officialAi = result.fdaMatch.ai;
         const calculatedCat = result.category;
+        const sourceType = result.fdaMatch.sourceType || 'CPCA';
+        const sourceBadgeClass = `badge-source-${sourceType.toLowerCase()}`;
         
         let matchClass = 'match-success';
         let matchText = '<i class="fa-solid fa-circle-check"></i> FDA 발표 기준치와 등급 계산 결과가 일치합니다.';
@@ -606,14 +611,24 @@ function renderResults(container, result) {
             }
         } else if (officialCat === null) {
             matchClass = 'match-info';
-            matchText = '<i class="fa-solid fa-circle-info"></i> 해당 물질은 CPCA가 아닌 다른 방법으로 설정된 섭취허용량입니다.';
+            matchText = `<i class="fa-solid fa-circle-info"></i> 해당 물질은 FDA ${sourceType} 기준에 따라 설정된 섭취허용량입니다.`;
+        }
+        
+        let extraRowHtml = '';
+        if (sourceType === 'SAR' && result.fdaMatch.surrogate) {
+            extraRowHtml = `<tr><th>참조 물질 (Surrogate)</th><td colspan="3">${result.fdaMatch.surrogate}</td></tr>`;
+        } else if (sourceType === 'Interim') {
+            extraRowHtml = `<tr><th>한시적 관리기준</th><td>${result.fdaMatch.interimLimitPpm || 'N/A'}</td><th>예상 관리 기한</th><td>${result.fdaMatch.estimatedDuration || 'N/A'}</td></tr>`;
         }
         
         fdaComparisonHtml = `
             <div class="cas-comparison-box ${matchClass}">
-                <div class="comp-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <div class="comp-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.5rem;">
                     <span><i class="fa-solid fa-building-shield"></i> FDA 발표 기준 불순물 DB 조회 완료 (연번: ${result.fdaMatch.id})</span>
-                    <span class="badge" style="background-color: var(--color-primary); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">FDA Established AI 기준</span>
+                    <div>
+                        <span class="${sourceBadgeClass}" style="margin-right: 4px;">FDA ${sourceType}</span>
+                        <span class="badge" style="background-color: var(--color-primary); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">2026.08 공고 기준</span>
+                    </div>
                 </div>
                 <table class="comp-table">
                     <tr>
@@ -624,10 +639,11 @@ function renderResults(container, result) {
                     </tr>
                     <tr>
                         <th>FDA 설정 카테고리</th>
-                        <td>${officialCat ? 'Category ' + officialCat : '등급 분류 제외 (N/A)'}</td>
+                        <td>${officialCat ? 'Category ' + officialCat : (sourceType + ' 기준')}</td>
                         <th>FDA 발표 허용량 (AI)</th>
                         <td><strong>${officialAi} ng/day</strong></td>
                     </tr>
+                    ${extraRowHtml}
                     <tr>
                         <th>결과 비교</th>
                         <td colspan="3"><strong>${matchText}</strong></td>
@@ -1430,6 +1446,27 @@ function selectAndAnalyzeItem(item, outputArea, placeholder, canvas) {
 }
 
 // FDA Lookup Functions
+let currentFdaFilter = 'ALL';
+
+function setFdaFilter(type) {
+    currentFdaFilter = type;
+    document.querySelectorAll('.fda-filter-group .btn').forEach(btn => btn.classList.remove('active'));
+    if (type === 'ALL') document.getElementById('fdaFilterAll')?.classList.add('active');
+    if (type === 'CPCA') document.getElementById('fdaFilterCpca')?.classList.add('active');
+    if (type === 'SAR') document.getElementById('fdaFilterSar')?.classList.add('active');
+    if (type === 'Interim') document.getElementById('fdaFilterInterim')?.classList.add('active');
+
+    const fdaSearchInput = document.getElementById('fdaSearchInput');
+    const outputArea = document.getElementById('resultOutputArea');
+    const placeholder = document.getElementById('canvasPlaceholder');
+    const canvas = document.getElementById('smilesCanvas');
+
+    const inputVal = fdaSearchInput ? fdaSearchInput.value.trim() : '';
+    if (inputVal) {
+        runFdaTextSearchAnalysis(inputVal, outputArea, placeholder, canvas);
+    }
+}
+
 function runFdaLookup() {
     const fdaSearchInput = document.getElementById('fdaSearchInput');
     const outputArea = document.getElementById('resultOutputArea');
@@ -1453,20 +1490,26 @@ function runFdaTextSearchAnalysis(query, outputArea, placeholder, canvas) {
     
     if (window.FDA_ADI_DATABASE) {
         for (let item of window.FDA_ADI_DATABASE) {
+            if (currentFdaFilter !== 'ALL' && item.sourceType !== currentFdaFilter) {
+                continue;
+            }
+
             const matchName = item.name ? item.name.toLowerCase() : '';
             const matchApi = item.api ? item.api.toLowerCase() : '';
+            const matchSurrogate = item.surrogate ? item.surrogate.toLowerCase() : '';
             
-            if (matchName.includes(lowercaseQuery) || matchApi.includes(lowercaseQuery)) {
+            if (matchName.includes(lowercaseQuery) || matchApi.includes(lowercaseQuery) || matchSurrogate.includes(lowercaseQuery)) {
                 matches.push(item);
             }
         }
     }
     
     if (matches.length === 0) {
+        const filterMsg = currentFdaFilter !== 'ALL' ? ` [${currentFdaFilter} 필터 적용 중]` : '';
         outputArea.innerHTML = `
             <div class="empty-state">
                 <i class="fa-solid fa-magnifying-glass-minus" style="font-size: 3.5rem; color: var(--color-warning); margin-bottom: 1.5rem;"></i>
-                <h3>검색 결과가 없습니다</h3>
+                <h3>검색 결과가 없습니다${filterMsg}</h3>
                 <p>입력하신 <strong>"${query}"</strong>에 부합하는 발생성분 또는 불순물 명칭을 FDA 설정 기준 DB에서 찾을 수 없습니다.</p>
                 <small style="margin-top: 1rem; color: var(--text-muted); display: block; margin-bottom: 1rem;">FDA 고시 목록에 없는 불순물입니다. [신규 니트로사민류 예측] 탭에서 SMILES로 CPCA 등급을 산출하세요.</small>
                 <button class="btn btn-primary btn-sm" style="display: flex; align-items: center; gap: 0.4rem; margin: 0 auto;" onclick="switchSubTab('predict'); document.getElementById('smilesInput').value = '${isSmilesPattern(query) ? query : ''}';">
@@ -1478,12 +1521,24 @@ function runFdaTextSearchAnalysis(query, outputArea, placeholder, canvas) {
         selectAndAnalyzeFdaItem(matches[0], outputArea, placeholder, canvas);
     } else {
         let listHtml = matches.map(item => {
-            const officialCat = item.category ? `Cat ${item.category}` : "N/A";
+            const sourceType = item.sourceType || 'CPCA';
+            const sourceBadgeClass = `badge-source-${sourceType.toLowerCase()}`;
+            
+            let catDisplay = "N/A";
+            if (item.category) {
+                catDisplay = `<span class="badge badge-cat-${item.category}">Cat ${item.category}</span>`;
+            } else if (sourceType === 'SAR') {
+                catDisplay = `<span style="font-size:0.8rem; color:var(--text-secondary);">참조: ${item.surrogate || 'SAR'}</span>`;
+            } else if (sourceType === 'Interim') {
+                catDisplay = `<span style="font-size:0.8rem; color:var(--text-secondary);">Interim: ${item.interimLimitPpm || 'N/A'}</span>`;
+            }
+
             return `
                 <tr class="search-result-row" onclick="window.selectAndAnalyzeFdaItemByNo(${item.id})">
                     <td><strong>${item.name}</strong></td>
                     <td>${item.api || 'N/A'}</td>
-                    <td class="center-text"><span class="badge badge-cat-${item.category || 5}">${officialCat}</span></td>
+                    <td class="center-text"><span class="${sourceBadgeClass}">FDA ${sourceType}</span></td>
+                    <td class="center-text">${catDisplay}</td>
                     <td class="right-text"><strong>${item.ai} ng/day</strong></td>
                     <td class="center-text">
                         <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); window.selectAndAnalyzeFdaItemByNo(${item.id})">
@@ -1496,8 +1551,9 @@ function runFdaTextSearchAnalysis(query, outputArea, placeholder, canvas) {
         
         outputArea.innerHTML = `
             <div class="search-results-panel">
-                <div class="search-results-header">
-                    <i class="fa-solid fa-list-ol"></i> 복수 검색 결과 발견 (총 <strong>${matches.length}</strong>건)
+                <div class="search-results-header" style="display: flex; align-items: center; justify-content: space-between;">
+                    <span><i class="fa-solid fa-list-ol"></i> 복수 검색 결과 발견 (총 <strong>${matches.length}</strong>건)</span>
+                    <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> FDA 2026.08 공고 기준</span>
                 </div>
                 <p class="search-results-desc">검색어 <strong>"${query}"</strong>에 매핑되는 FDA 설정 기준 불순물 목록입니다. 분석할 물질을 클릭하세요:</p>
                 <div class="table-responsive" style="margin-top: 1rem;">
@@ -1506,8 +1562,9 @@ function runFdaTextSearchAnalysis(query, outputArea, placeholder, canvas) {
                             <tr>
                                 <th>불순물 명칭 (영문)</th>
                                 <th>발생 원료 성분</th>
-                                <th class="center-text">FDA 설정 등급</th>
-                                <th class="right-text">FDA 설정 허용량</th>
+                                <th class="center-text">근거 기준</th>
+                                <th class="center-text">FDA 설정 등급 / 비고</th>
+                                <th class="right-text">FDA 섭취허용량</th>
                                 <th class="center-text">분석</th>
                             </tr>
                         </thead>
@@ -1577,6 +1634,20 @@ function selectAndAnalyzeFdaItem(item, outputArea, placeholder, canvas) {
         .catch(err => {
             console.error("Structure resolution failed: ", err);
             
+            let messageDetails = [
+                `FDA 1일 섭취허용량 기준 목록 등록 확인 (연번: ${item.id})`,
+                `공고 기준: ${item.publishDate || '2026년 8월 공고'}`,
+                `발생 성분: ${item.api || '해당 없음'}`
+            ];
+
+            if (item.sourceType === 'SAR') {
+                messageDetails.push(`FDA 설정 섭취허용량: ${item.ai} ng/day (SAR / Read-Across, 참조물질: ${item.surrogate || 'N/A'})`);
+            } else if (item.sourceType === 'Interim') {
+                messageDetails.push(`FDA 한시적 섭취허용량: ${item.ai} ng/day (Interim Limit: ${item.interimLimitPpm || 'N/A'}, 기한: ${item.estimatedDuration || 'N/A'})`);
+            } else {
+                messageDetails.push(`FDA 설정 섭취허용량: ${item.ai} ng/day (CPCA Category ${item.category || 'N/A'})`);
+            }
+
             lastAutoResult = {
                 smiles: "N/A (구조식 조회 실패)",
                 targetName: item.name,
@@ -1585,11 +1656,7 @@ function selectAndAnalyzeFdaItem(item, outputArea, placeholder, canvas) {
                 score: null,
                 ai: item.ai ? `${item.ai} ng/day` : "FDA 설정 기준",
                 mdd: hasMdd ? mddVal : null,
-                messages: [
-                    `FDA 1일 섭취허용량 기준 목록 등록 확인 (연번: ${item.id})`,
-                    `발생 성분: ${item.api || '해당 없음'}`,
-                    `FDA 설정 섭취허용량: ${item.ai} ng/day (CPCA Category ${item.category || 'N/A'})`
-                ],
+                messages: messageDetails,
                 patternsCount: 0,
                 fdaMatch: item
             };
@@ -1608,8 +1675,9 @@ function selectAndAnalyzeFdaItem(item, outputArea, placeholder, canvas) {
 }
 
 // Expose selection methods to global window namespace
+window.setFdaFilter = setFdaFilter;
+window.runFdaLookup = runFdaLookup;
 window.selectAndAnalyzeItemByNo = selectAndAnalyzeItemByNo;
 window.selectAndAnalyzeItem = selectAndAnalyzeItem;
 window.selectAndAnalyzeFdaItemByNo = selectAndAnalyzeFdaItemByNo;
 window.selectAndAnalyzeFdaItem = selectAndAnalyzeFdaItem;
-window.runFdaLookup = runFdaLookup;
