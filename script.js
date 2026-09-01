@@ -1681,3 +1681,256 @@ window.selectAndAnalyzeItemByNo = selectAndAnalyzeItemByNo;
 window.selectAndAnalyzeItem = selectAndAnalyzeItem;
 window.selectAndAnalyzeFdaItemByNo = selectAndAnalyzeFdaItemByNo;
 window.selectAndAnalyzeFdaItem = selectAndAnalyzeFdaItem;
+
+// ==========================================================================
+// Feedback & Guestbook System Logic
+// ==========================================================================
+let currentFbCategory = 'feature';
+let currentFbRating = 5;
+let currentFbFilterTab = 'ALL';
+
+const DEFAULT_FEEDBACKS = [
+    {
+        id: 1,
+        author: "김민석 연구원",
+        org: "OO제약 연구소",
+        category: "feature",
+        rating: 5,
+        content: "FDA CPCA뿐만 아니라 SAR 및 Interim 기준까지 세분화되어 있어 불순물 허용 기준 검토할 때 정말 편리하네요! 2026.08 최신 공고 데이터 반영도 빠르게 이루어져 만족스럽습니다.",
+        likes: 12,
+        date: "2026-08-30 14:20"
+    },
+    {
+        id: 2,
+        author: "박지현 과장",
+        org: "글로벌 RA팀",
+        category: "data",
+        rating: 5,
+        content: "식약처 2026.08 최신 고시 수치가 잘 반영되어 있네요. 혹시 EMA(유럽) 고시 기준도 추후 탭으로 추가될 계획이 있는지 궁금합니다.",
+        likes: 8,
+        date: "2026-08-28 09:45"
+    },
+    {
+        id: 3,
+        author: "이동원 님",
+        org: "품질보증부",
+        category: "general",
+        rating: 5,
+        content: "SMILES로 2D 구조 자동 시각화 및 CPCA 카테고리 실시간 산출 속도가 매우 빠릅니다. 응원합니다!",
+        likes: 15,
+        date: "2026-08-25 17:10"
+    }
+];
+
+function getStoredFeedbacks() {
+    try {
+        const stored = localStorage.getItem('nitrosamine_feedbacks');
+        if (stored) {
+            return JSON.parse(stored);
+        }
+    } catch (e) {
+        console.error("Failed to read feedbacks from localStorage", e);
+    }
+    localStorage.setItem('nitrosamine_feedbacks', JSON.stringify(DEFAULT_FEEDBACKS));
+    return DEFAULT_FEEDBACKS;
+}
+
+function saveStoredFeedbacks(feedbacks) {
+    try {
+        localStorage.setItem('nitrosamine_feedbacks', JSON.stringify(feedbacks));
+    } catch (e) {
+        console.error("Failed to save feedbacks to localStorage", e);
+    }
+}
+
+function openFeedbackModal() {
+    const modal = document.getElementById('feedbackModalOverlay');
+    if (modal) {
+        modal.style.display = 'flex';
+        renderFeedbackList();
+    }
+}
+
+function closeFeedbackModal(event) {
+    if (!event || event.target.id === 'feedbackModalOverlay' || event.target.closest('.modal-close-btn')) {
+        const modal = document.getElementById('feedbackModalOverlay');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+
+function selectFeedbackCategory(cat) {
+    currentFbCategory = cat;
+    document.querySelectorAll('#feedbackCategoryPills .pill-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === cat);
+    });
+}
+
+function setFeedbackRating(rating) {
+    currentFbRating = rating;
+    const ratingLabels = {
+        1: "1.0 / 5.0 (개선 필요)",
+        2: "2.0 / 5.0 (아쉬움)",
+        3: "3.0 / 5.0 (보통)",
+        4: "4.0 / 5.0 (만족)",
+        5: "5.0 / 5.0 (매우 만족)"
+    };
+    
+    document.querySelectorAll('#starRatingPicker .star-btn').forEach(star => {
+        const val = parseInt(star.dataset.star);
+        star.classList.toggle('active', val <= rating);
+    });
+    
+    const textEl = document.getElementById('starRatingText');
+    if (textEl) {
+        textEl.textContent = ratingLabels[rating] || `${rating}.0 / 5.0`;
+    }
+}
+
+function submitFeedback() {
+    const contentEl = document.getElementById('fbContent');
+    const nameEl = document.getElementById('fbAuthorName');
+    const orgEl = document.getElementById('fbAuthorOrg');
+    
+    const content = contentEl ? contentEl.value.trim() : '';
+    if (!content) {
+        alert("피드백 내용을 입력해 주세요.");
+        return;
+    }
+    
+    const author = nameEl && nameEl.value.trim() ? nameEl.value.trim() : "익명 방문자";
+    const org = orgEl && orgEl.value.trim() ? orgEl.value.trim() : "";
+    
+    const now = new Date();
+    const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    
+    const newEntry = {
+        id: Date.now(),
+        author: author,
+        org: org,
+        category: currentFbCategory,
+        rating: currentFbRating,
+        content: content,
+        likes: 0,
+        date: dateStr
+    };
+    
+    const feedbacks = getStoredFeedbacks();
+    feedbacks.unshift(newEntry);
+    saveStoredFeedbacks(feedbacks);
+    
+    // Reset form
+    contentEl.value = '';
+    if (nameEl) nameEl.value = '';
+    if (orgEl) orgEl.value = '';
+    setFeedbackRating(5);
+    selectFeedbackCategory('feature');
+    
+    alert("피드백이 성공적으로 등록되었습니다. 감사합니다!");
+    renderFeedbackList();
+}
+
+function likeFeedback(id) {
+    const feedbacks = getStoredFeedbacks();
+    const target = feedbacks.find(item => item.id === id);
+    if (target) {
+        target.likes = (target.likes || 0) + 1;
+        saveStoredFeedbacks(feedbacks);
+        renderFeedbackList();
+    }
+}
+
+function filterFeedbackBoard(cat, btnEl) {
+    currentFbFilterTab = cat;
+    document.querySelectorAll('.board-filter-tabs .filter-tab').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    renderFeedbackList();
+}
+
+function renderFeedbackList() {
+    const container = document.getElementById('feedbackListContainer');
+    const totalCountEl = document.getElementById('feedbackTotalCount');
+    const avgRatingEl = document.getElementById('feedbackAvgRating');
+    
+    if (!container) return;
+    
+    const feedbacks = getStoredFeedbacks();
+    
+    // Update stats
+    if (totalCountEl) totalCountEl.textContent = `${feedbacks.length}건`;
+    if (avgRatingEl && feedbacks.length > 0) {
+        const sum = feedbacks.reduce((acc, item) => acc + (item.rating || 5), 0);
+        const avg = (sum / feedbacks.length).toFixed(1);
+        avgRatingEl.textContent = `⭐ ${avg} / 5.0`;
+    }
+    
+    // Filter
+    const filtered = feedbacks.filter(item => currentFbFilterTab === 'ALL' || item.category === currentFbFilterTab);
+    
+    if (filtered.length === 0) {
+        container.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                <i class="fa-solid fa-comment-slash" style="font-size: 2.5rem; margin-bottom: 0.8rem; color: #cbd5e1;"></i>
+                <p style="margin: 0; font-size: 0.9rem;">등록된 피드백이 없습니다.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const categoryLabels = {
+        feature: { name: "기능 제안", class: "badge-fb-feature" },
+        data: { name: "데이터 제보", class: "badge-fb-data" },
+        bug: { name: "버그 신고", class: "badge-fb-bug" },
+        general: { name: "일반 방명록", class: "badge-fb-general" }
+    };
+    
+    container.innerHTML = filtered.map(item => {
+        const catInfo = categoryLabels[item.category] || { name: "방명록", class: "badge-fb-general" };
+        const starsHtml = "★".repeat(item.rating || 5) + "☆".repeat(5 - (item.rating || 5));
+        const orgText = item.org ? `(${item.org})` : '';
+
+        return `
+            <div class="feedback-card">
+                <div class="feedback-card-header">
+                    <div>
+                        <span class="feedback-author">${item.author}</span>
+                        <span class="feedback-org">${orgText}</span>
+                    </div>
+                    <span class="badge ${catInfo.class}">${catInfo.name}</span>
+                </div>
+                <div class="feedback-body">${item.content}</div>
+                <div class="feedback-footer">
+                    <span style="color: #f59e0b; font-weight: 700;">${starsHtml}</span>
+                    <div style="display: flex; align-items: center; gap: 0.8rem;">
+                        <span>${item.date}</span>
+                        <button class="like-btn" onclick="likeFeedback(${item.id})">
+                            <i class="fa-regular fa-thumbs-up"></i> <span>공감 ${item.likes || 0}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function exportFeedbackJson() {
+    const feedbacks = getStoredFeedbacks();
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(feedbacks, null, 2));
+    const dlAnchorElem = document.createElement('a');
+    dlAnchorElem.setAttribute("href", dataStr);
+    dlAnchorElem.setAttribute("download", `nitrosamines_feedbacks_${new Date().toISOString().slice(0,10)}.json`);
+    document.body.appendChild(dlAnchorElem);
+    dlAnchorElem.click();
+    dlAnchorElem.remove();
+}
+
+// Expose feedback functions globally
+window.openFeedbackModal = openFeedbackModal;
+window.closeFeedbackModal = closeFeedbackModal;
+window.selectFeedbackCategory = selectFeedbackCategory;
+window.setFeedbackRating = setFeedbackRating;
+window.submitFeedback = submitFeedback;
+window.likeFeedback = likeFeedback;
+window.filterFeedbackBoard = filterFeedbackBoard;
+window.exportFeedbackJson = exportFeedbackJson;

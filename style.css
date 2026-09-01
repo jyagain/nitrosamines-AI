@@ -1505,3 +1505,245 @@ input[type="text"]:focus {
         height: 20px;
     }
 }
+
+/* ==========================================================================
+   Feedback & Guestbook Modal Styles
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.feedback-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feedback-modal-header {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.feedback-modal-body {
+    padding: 1.2rem 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.feedback-stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.feedback-form-card {
+    background: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.category-pills {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.pill-btn {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.pill-btn.active {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+.star-rating-picker {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.star-btn {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.star-btn.active, .star-btn:hover {
+    color: #f59e0b;
+}
+
+.star-btn:hover {
+    transform: scale(1.15);
+}
+
+.board-filter-tabs {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.filter-tab {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.filter-tab.active {
+    background: var(--color-primary);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.feedback-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.7rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.feedback-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+.feedback-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.feedback-author {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #0f172a;
+}
+
+.feedback-org {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 0.3rem;
+}
+
+.feedback-body {
+    font-size: 0.88rem;
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.feedback-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.like-btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.15s ease;
+}
+
+.like-btn:hover {
+    background: #e0f2fe;
+    color: #0284c7;
+    border-color: #7dd3fc;
+}
+
+/* Badge colors for feedback categories */
+.badge-fb-feature { background: rgba(14, 165, 233, 0.12); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.25); }
+.badge-fb-data { background: rgba(168, 85, 247, 0.12); color: #7e22ce; border: 1px solid rgba(168, 85, 247, 0.25); }
+.badge-fb-bug { background: rgba(239, 68, 68, 0.12); color: #b91c1c; border: 1px solid rgba(239, 68, 68, 0.25); }
+.badge-fb-general { background: rgba(16, 185, 129, 0.12); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
