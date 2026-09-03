@@ -1,7 +1,4 @@
-/**
- * FDA Official Nitrosamine ADI Database (304 entries: CPCA, SAR, Interim)
- * Updated: 2026-08 (공고 월: 2026년 8월)
- */
+/** FDA Official Database (304 entries) */
 window.FDA_ADI_DATABASE = [
   {
     "id": 1,

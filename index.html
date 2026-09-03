@@ -40,7 +40,7 @@
                 </button>
             </div>
             <div class="header-desc">
-                식약처 · FDA 고시 1일 섭취허용량(ADI) 통합 DB (CPCA / SAR / Interim) 및 구조 기반 위해성 평가 시스템
+                식약처 · US FDA · EMA · Health Canada · TGA 5대 글로벌 규제 기관 1일 섭취허용량(AI) 통합 DB 및 구조 기반 위해성 평가 시스템
             </div>
         </header>
 
@@ -67,13 +67,22 @@
                         <!-- Sub Tab Navigation -->
                         <nav class="sub-tab-nav">
                             <button class="sub-tab-btn active" id="subTabBtnMfds" onclick="switchSubTab('mfds')">
-                                <i class="fa-solid fa-magnifying-glass"></i> MFDS(식약처) 기준
+                                <i class="fa-solid fa-building-shield"></i> 식약처 (MFDS)
                             </button>
                             <button class="sub-tab-btn" id="subTabBtnFda" onclick="switchSubTab('fda')">
-                                <i class="fa-solid fa-magnifying-glass-chart"></i> FDA 기준
+                                <i class="fa-solid fa-flag-usa"></i> US FDA
+                            </button>
+                            <button class="sub-tab-btn" id="subTabBtnEma" onclick="switchSubTab('ema')">
+                                <i class="fa-solid fa-landmark"></i> EMA (유럽)
+                            </button>
+                            <button class="sub-tab-btn" id="subTabBtnHc" onclick="switchSubTab('hc')">
+                                <i class="fa-solid fa-leaf"></i> Health Canada
+                            </button>
+                            <button class="sub-tab-btn" id="subTabBtnTga" onclick="switchSubTab('tga')">
+                                <i class="fa-solid fa-earth-oceania"></i> TGA (호주)
                             </button>
                             <button class="sub-tab-btn" id="subTabBtnPredict" onclick="switchSubTab('predict')">
-                                <i class="fa-solid fa-wand-magic-sparkles"></i> 신규 니트로사민류 예측 (CPCA)
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> CPCA 직접 계산
                             </button>
                         </nav>
 
@@ -81,19 +90,20 @@
                         <div class="sub-tab-content active" id="subTabContentMfds">
                             <p
                                 style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                                <span>식약처가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.</span>
-                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> MFDS 2026년 8월 공고 기준</span>
+                                <span>식약처(MFDS) 고시 1일 섭취허용량(AI) 기준 불순물 정보를 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> MFDS (168건)</span>
                             </p>
 
-                            <div class="form-group">
-                                <label for="adiSearchInput">CAS 번호, 발생성분명 또는 불순물명 입력</label>
+                            <div class="form-group" style="position: relative;">
+                                <label for="adiSearchInput">CAS 번호, 발생성분명 또는 불순물명 입력 (실시간 검색)</label>
                                 <div class="smiles-input-group">
                                     <input type="text" id="adiSearchInput"
-                                        placeholder="예: 62-75-9, 보노프라잔, 또는 Carvedilol" autocomplete="off">
+                                        placeholder="예: 62-75-9, 보노프라잔, 또는 Carvedilol" autocomplete="off" oninput="handleSearchAutocomplete(event, 'mfds')">
                                     <button class="btn btn-primary" id="btnAdiSearch" onclick="runAdiLookup()">
                                         <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
                                     </button>
                                 </div>
+                                <div id="mfdsAutocomplete" class="autocomplete-dropdown" style="display: none;"></div>
                             </div>
                         </div>
 
@@ -101,8 +111,8 @@
                         <div class="sub-tab-content" id="subTabContentFda">
                             <p
                                 style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                                <span>FDA가 1일 섭취허용량(AI)을 설정하여 발표한 니트로사민류 정보를 조회합니다.</span>
-                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> FDA 2026년 8월 공고 기준</span>
+                                <span>US FDA 고시 1일 섭취허용량(AI) 기준 불순물 정보를 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> US FDA (304건)</span>
                             </p>
 
                             <div class="fda-filter-group" style="display: flex; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center;">
@@ -113,15 +123,79 @@
                                 <button class="btn btn-sm btn-secondary" id="fdaFilterInterim" onclick="setFdaFilter('Interim')" style="padding: 0.25rem 0.6rem; font-size: 0.8rem;">Interim (9건)</button>
                             </div>
 
-                            <div class="form-group">
-                                <label for="fdaSearchInput">불순물 명칭 또는 발생성분명 입력</label>
+                            <div class="form-group" style="position: relative;">
+                                <label for="fdaSearchInput">불순물 명칭 또는 발생성분명 입력 (실시간 검색)</label>
                                 <div class="smiles-input-group">
                                     <input type="text" id="fdaSearchInput"
-                                        placeholder="예: N-nitroso-sertraline 또는 Sertraline 입력" autocomplete="off">
+                                        placeholder="예: N-nitroso-sertraline 또는 Sertraline 입력" autocomplete="off" oninput="handleSearchAutocomplete(event, 'fda')">
                                     <button class="btn btn-primary" id="btnFdaSearch" onclick="runFdaLookup()">
                                         <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
                                     </button>
                                 </div>
+                                <div id="fdaAutocomplete" class="autocomplete-dropdown" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sub Tab 3: EMA (유럽 의약품청 기준) -->
+                        <div class="sub-tab-content" id="subTabContentEma">
+                            <p
+                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span>유럽 EMA (European Medicines Agency) 설정 1일 섭취허용량 기준을 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> EMA (261건)</span>
+                            </p>
+
+                            <div class="form-group" style="position: relative;">
+                                <label for="emaSearchInput">EMA 불순물명, 주성분(Source) 또는 CAS 번호 입력 (실시간 검색)</label>
+                                <div class="smiles-input-group">
+                                    <input type="text" id="emaSearchInput"
+                                        placeholder="예: N-nitroso-cimetidine 또는 Ciprofloxacin" autocomplete="off" oninput="handleSearchAutocomplete(event, 'ema')">
+                                    <button class="btn btn-primary" id="btnEmaSearch" onclick="runEmaLookup()">
+                                        <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
+                                    </button>
+                                </div>
+                                <div id="emaAutocomplete" class="autocomplete-dropdown" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sub Tab 4: Health Canada (캐나다 보건성 기준) -->
+                        <div class="sub-tab-content" id="subTabContentHc">
+                            <p
+                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span>캐나다 보건성 (Health Canada) 설정 1일 섭취허용량 기준을 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> Health Canada (183건)</span>
+                            </p>
+
+                            <div class="form-group" style="position: relative;">
+                                <label for="hcSearchInput">Health Canada 불순물명, 주성분(Drug Substance) 또는 CAS 번호 입력</label>
+                                <div class="smiles-input-group">
+                                    <input type="text" id="hcSearchInput"
+                                        placeholder="예: N-nitroso-folic acid 또는 Diltiazem" autocomplete="off" oninput="handleSearchAutocomplete(event, 'hc')">
+                                    <button class="btn btn-primary" id="btnHcSearch" onclick="runHcLookup()">
+                                        <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
+                                    </button>
+                                </div>
+                                <div id="hcAutocomplete" class="autocomplete-dropdown" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Sub Tab 5: TGA (호주 식약청 기준) -->
+                        <div class="sub-tab-content" id="subTabContentTga">
+                            <p
+                                style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.5; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                                <span>호주 TGA (Therapeutic Goods Administration) 설정 1일 섭취허용량 기준 및 출처 링크를 조회합니다.</span>
+                                <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;"><i class="fa-regular fa-calendar-check"></i> TGA (259건)</span>
+                            </p>
+
+                            <div class="form-group" style="position: relative;">
+                                <label for="tgaSearchInput">TGA 불순물명, 주성분(Source) 또는 CAS 번호 입력 (실시간 검색)</label>
+                                <div class="smiles-input-group">
+                                    <input type="text" id="tgaSearchInput"
+                                        placeholder="예: N-Nitroso-abacavir 또는 Acarbose" autocomplete="off" oninput="handleSearchAutocomplete(event, 'tga')">
+                                    <button class="btn btn-primary" id="btnTgaSearch" onclick="runTgaLookup()">
+                                        <i class="fa-solid fa-magnifying-glass"></i> 조회 및 분석
+                                    </button>
+                                </div>
+                                <div id="tgaAutocomplete" class="autocomplete-dropdown" style="display: none;"></div>
                             </div>
                         </div>
 
@@ -474,6 +548,14 @@
 
         <!-- Footer -->
         <footer class="main-footer no-print">
+            <div class="update-notice-banner" style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; flex-wrap: wrap; background: #ffffff !important; border: 1px solid #cbd5e1 !important; padding: 0.6rem 1.25rem; border-radius: 30px; margin: 0 auto 1.2rem auto; width: fit-content; font-size: 0.88rem; color: #0f172a !important; font-weight: 500; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);">
+                <span class="badge" style="background: #e0f2fe !important; color: #0369a1 !important; border: 1px solid #7dd3fc !important; padding: 0.25rem 0.7rem; border-radius: 20px; font-weight: 700; font-size: 0.78rem;">
+                    <i class="fa-solid fa-arrows-rotate"></i> DB 업데이트 현황
+                </span>
+                <span style="color: #1e293b !important;">최종 업데이트: <strong style="color: #0284c7 !important;">2026년 9월 4일</strong></span>
+                <span style="color: #94a3b8 !important;">|</span>
+                <span style="color: #1e293b !important;"><i class="fa-regular fa-calendar-check" style="color: #0284c7 !important;"></i> 정기 업데이트: <strong style="color: #0284c7 !important;">매달 4일</strong> (5대 규제 기관 최신 고시 연동)</span>
+            </div>
             <p>© 2026 CPCA 계산기 - 클라이언트 사이드 니트로사민 불순물 평가 솔루션</p>
             <p class="disclaimer">Novartis Open Source CPCA Script (MIT License)에 근거하여 개발되었습니다. 모든 계산은 브라우저 로컬 환경에서 기밀이
                 유지된 채 수행됩니다.</p>
@@ -592,6 +674,9 @@
     <script src="data.js"></script>
     <script src="adi_db.js"></script>
     <script src="fda_db.js"></script>
+    <script src="ema_db.js"></script>
+    <script src="hc_db.js"></script>
+    <script src="tga_db.js"></script>
     <script src="cpca_engine.js"></script>
     <script src="script.js"></script>
 </body>

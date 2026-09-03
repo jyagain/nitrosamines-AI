@@ -23,32 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
     runWizardCalculation();
     
     // 3. Bind enter key on input fields
-    const adiSearchInput = document.getElementById('adiSearchInput');
-    if (adiSearchInput) {
-        adiSearchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                runAdiLookup();
-            }
-        });
-    }
+    const bindEnter = (id, fn) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') fn();
+            });
+        }
+    };
     
-    const fdaSearchInput = document.getElementById('fdaSearchInput');
-    if (fdaSearchInput) {
-        fdaSearchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                runFdaLookup();
-            }
-        });
-    }
-    
-    const smilesInput = document.getElementById('smilesInput');
-    if (smilesInput) {
-        smilesInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                runPredictCPCA();
-            }
-        });
-    }
+    bindEnter('adiSearchInput', runAdiLookup);
+    bindEnter('fdaSearchInput', runFdaLookup);
+    bindEnter('emaSearchInput', runEmaLookup);
+    bindEnter('hcSearchInput', runHcLookup);
+    bindEnter('tgaSearchInput', runTgaLookup);
+    bindEnter('smilesInput', runPredictCPCA);
 });
 
 
@@ -87,15 +76,21 @@ function switchSubTab(subTab) {
     
     const btnMfds = document.getElementById('subTabBtnMfds');
     const btnFda = document.getElementById('subTabBtnFda');
+    const btnEma = document.getElementById('subTabBtnEma');
+    const btnHc = document.getElementById('subTabBtnHc');
+    const btnTga = document.getElementById('subTabBtnTga');
     const btnPredict = document.getElementById('subTabBtnPredict');
     
     const contentMfds = document.getElementById('subTabContentMfds');
     const contentFda = document.getElementById('subTabContentFda');
+    const contentEma = document.getElementById('subTabContentEma');
+    const contentHc = document.getElementById('subTabContentHc');
+    const contentTga = document.getElementById('subTabContentTga');
     const contentPredict = document.getElementById('subTabContentPredict');
     
     // Deactivate all
-    [btnMfds, btnFda, btnPredict].forEach(btn => btn && btn.classList.remove('active'));
-    [contentMfds, contentFda, contentPredict].forEach(c => c && c.classList.remove('active'));
+    [btnMfds, btnFda, btnEma, btnHc, btnTga, btnPredict].forEach(btn => btn && btn.classList.remove('active'));
+    [contentMfds, contentFda, contentEma, contentHc, contentTga, contentPredict].forEach(c => c && c.classList.remove('active'));
     
     if (subTab === 'mfds') {
         if (btnMfds) btnMfds.classList.add('active');
@@ -103,6 +98,15 @@ function switchSubTab(subTab) {
     } else if (subTab === 'fda') {
         if (btnFda) btnFda.classList.add('active');
         if (contentFda) contentFda.classList.add('active');
+    } else if (subTab === 'ema') {
+        if (btnEma) btnEma.classList.add('active');
+        if (contentEma) contentEma.classList.add('active');
+    } else if (subTab === 'hc') {
+        if (btnHc) btnHc.classList.add('active');
+        if (contentHc) contentHc.classList.add('active');
+    } else if (subTab === 'tga') {
+        if (btnTga) btnTga.classList.add('active');
+        if (contentTga) contentTga.classList.add('active');
     } else if (subTab === 'predict') {
         if (btnPredict) btnPredict.classList.add('active');
         if (contentPredict) contentPredict.classList.add('active');
@@ -533,126 +537,24 @@ function renderResults(container, result) {
         warningHtml = `
             <div class="warning-alert-box">
                 <div class="alert-title">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 주의: 식약처 설정 자체 독성값 존재 물질
+                    <i class="fa-solid fa-triangle-exclamation"></i> 주의: 규제 기관 설정 자체 독성값 존재 물질
                 </div>
                 <div class="alert-body">
-                    이 물질은 규제 기관(식약처/EMA/FDA)에서 발암성 연구 데이터를 기반으로 별도 지정한 <strong>자체 독성값(Compound-Specific AI)</strong>이 존재합니다.<br>
+                    이 물질은 규제 기관(식약처/EMA/FDA/HC/TGA)에서 발암성 연구 데이터를 기반으로 별도 지정한 <strong>자체 독성값(Compound-Specific AI)</strong>이 존재합니다.<br>
                     따라서 CPCA 분류 등급을 적용하지 않으며, 공식 발표 기준치인 <strong>${result.compoundSpecific.ai}</strong>를 우선 준수해야 합니다.
                 </div>
             </div>
         `;
     }
     
-    let casComparisonHtml = '';
-    if (result.casMatch) {
-        const officialCat = result.casMatch.category;
-        const officialAi = result.casMatch.ai;
-        const calculatedCat = result.category;
-        
-        let matchClass = 'match-success';
-        let matchText = '<i class="fa-solid fa-circle-check"></i> 식약처 발표 기준치와 등급 계산 결과가 일치합니다.';
-        
-        if (officialCat !== null && calculatedCat !== null) {
-            if (parseInt(officialCat) !== parseInt(calculatedCat)) {
-                matchClass = 'match-warning';
-                matchText = '<i class="fa-solid fa-triangle-exclamation"></i> 주의: 계산된 등급과 식약처 발표 기준 등급이 상이합니다. 식약처 발표 기준치 적용이 필요합니다.';
-            }
-        } else if (officialCat === null) {
-            matchClass = 'match-info';
-            matchText = '<i class="fa-solid fa-circle-info"></i> 해당 물질은 CPCA가 아닌 다른 방법(예: 유사체 참조, 독성 시험 등)으로 설정된 섭취허용량입니다.';
-        }
-        
-        casComparisonHtml = `
-            <div class="cas-comparison-box ${matchClass}">
-                <div class="comp-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.5rem;">
-                    <span><i class="fa-solid fa-building-shield"></i> 식약처 발표 기준 불순물 DB 조회 완료 (연번: ${result.casMatch.no})</span>
-                    <span class="badge" style="background-color: #0284c7; color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">MFDS 2026.08 공고 기준</span>
-                </div>
-                <table class="comp-table">
-                    <tr>
-                        <th>공식 물질명</th>
-                        <td>${result.casMatch.name}</td>
-                        <th>발생 활성성분</th>
-                        <td>${result.casMatch.active || '해당 없음'}</td>
-                    </tr>
-                    <tr>
-                        <th>식약처 설정 카테고리</th>
-                        <td>${officialCat ? 'Category ' + officialCat : '등급 분류 제외 (N/A)'}</td>
-                        <th>식약처 발표 허용량 (AI)</th>
-                        <td><strong>${officialAi} ng/day</strong></td>
-                    </tr>
-                    ${result.casMatch.remark ? `<tr><th>비고 (산출 근거)</th><td colspan="3">${result.casMatch.remark}</td></tr>` : ''}
-                    <tr>
-                        <th>발표일자</th>
-                        <td>${result.casMatch.date || '2026-08'}</td>
-                        <th>결과 비교</th>
-                        <td colspan="3"><strong>${matchText}</strong></td>
-                    </tr>
-                </table>
-            </div>
-        `;
-    }
-    
-    let fdaComparisonHtml = '';
-    if (result.fdaMatch) {
-        const officialCat = result.fdaMatch.category;
-        const officialAi = result.fdaMatch.ai;
-        const calculatedCat = result.category;
-        const sourceType = result.fdaMatch.sourceType || 'CPCA';
-        const sourceBadgeClass = `badge-source-${sourceType.toLowerCase()}`;
-        
-        let matchClass = 'match-success';
-        let matchText = '<i class="fa-solid fa-circle-check"></i> FDA 발표 기준치와 등급 계산 결과가 일치합니다.';
-        
-        if (officialCat !== null && calculatedCat !== null) {
-            if (parseInt(officialCat) !== parseInt(calculatedCat)) {
-                matchClass = 'match-warning';
-                matchText = '<i class="fa-solid fa-triangle-exclamation"></i> 주의: 계산된 등급과 FDA 발표 기준 등급이 상이합니다. FDA 발표 기준치 적용이 필요합니다.';
-            }
-        } else if (officialCat === null) {
-            matchClass = 'match-info';
-            matchText = `<i class="fa-solid fa-circle-info"></i> 해당 물질은 FDA ${sourceType} 기준에 따라 설정된 섭취허용량입니다.`;
-        }
-        
-        let extraRowHtml = '';
-        if (sourceType === 'SAR' && result.fdaMatch.surrogate) {
-            extraRowHtml = `<tr><th>참조 물질 (Surrogate)</th><td colspan="3">${result.fdaMatch.surrogate}</td></tr>`;
-        } else if (sourceType === 'Interim') {
-            extraRowHtml = `<tr><th>한시적 관리기준</th><td>${result.fdaMatch.interimLimitPpm || 'N/A'}</td><th>예상 관리 기한</th><td>${result.fdaMatch.estimatedDuration || 'N/A'}</td></tr>`;
-        }
-        
-        fdaComparisonHtml = `
-            <div class="cas-comparison-box ${matchClass}">
-                <div class="comp-title" style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 0.5rem;">
-                    <span><i class="fa-solid fa-building-shield"></i> FDA 발표 기준 불순물 DB 조회 완료 (연번: ${result.fdaMatch.id})</span>
-                    <div>
-                        <span class="${sourceBadgeClass}" style="margin-right: 4px;">FDA ${sourceType}</span>
-                        <span class="badge" style="background-color: var(--color-primary); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">2026.08 공고 기준</span>
-                    </div>
-                </div>
-                <table class="comp-table">
-                    <tr>
-                        <th>공식 물질명</th>
-                        <td>${result.fdaMatch.name}</td>
-                        <th>발생 활성성분</th>
-                        <td>${result.fdaMatch.api || '해당 없음'}</td>
-                    </tr>
-                    <tr>
-                        <th>FDA 설정 카테고리</th>
-                        <td>${officialCat ? 'Category ' + officialCat : (sourceType + ' 기준')}</td>
-                        <th>FDA 발표 허용량 (AI)</th>
-                        <td><strong>${officialAi} ng/day</strong></td>
-                    </tr>
-                    ${extraRowHtml}
-                    <tr>
-                        <th>결과 비교</th>
-                        <td colspan="3"><strong>${matchText}</strong></td>
-                    </tr>
-                </table>
-            </div>
-        `;
-    }
-    
+    // Build 5-Agency Comparison Summary Card
+    const multiMatches = result.multiMatches || findMultiAgencyMatches(
+        result.targetName,
+        result.queryCas || result.casMatch?.cas || result.fdaMatch?.cas || result.agencyMatch?.cas,
+        result.casMatch?.active || result.fdaMatch?.api || result.agencyMatch?.active
+    );
+    const multiComparisonHtml = buildMultiAgencyCardHtml(multiMatches, activeSubTab);
+
     let qcHtml = '';
     if (result.mdd) {
         const numericAi = getNumericAi(result.ai);
@@ -685,7 +587,7 @@ function renderResults(container, result) {
                                 <tr>
                                     <th>실측 분석 농도</th>
                                     <th>위험 수준</th>
-                                    <th>조치 및 대응 요구사항 (식약처/EMA 권장)</th>
+                                    <th>조치 및 대응 요구사항 (규제 기관 권장)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -700,7 +602,7 @@ function renderResults(container, result) {
                                     <td>skip testing 또는 정기 시험(Routine Testing) 규격 설정 및 주기적 분석 관리 필요</td>
                                 </tr>
                                 <tr class="danger-row">
-                                    <td><strong>${formatConcentration(limitPpm)} 초과</strong></td>
+                                    <td><strong>${formatConcentration(limitPpm)} 초과 초과</strong></td>
                                     <td><span class="badge danger">위험 (Exceeded)</span></td>
                                     <td><strong>규격 부적합</strong>. 출하 불가. 제조 공정 개선(아민/아질산염 제거) 및 변경승인 필수</td>
                                 </tr>
@@ -719,8 +621,7 @@ function renderResults(container, result) {
     container.innerHTML = `
         <div class="res-dashboard">
             ${warningHtml}
-            ${casComparisonHtml}
-            ${fdaComparisonHtml}
+            ${multiComparisonHtml}
             ${qcHtml}
             <div class="res-metrics">
                 <div class="metric-box">
@@ -760,16 +661,17 @@ function printResult() {
     document.getElementById('printCategory').textContent = `Category ${result.category}`;
     document.getElementById('printAi').textContent = result.ai;
     document.getElementById('printScore').textContent = result.score === null ? "등급 분류 제외 (N/A)" : `${result.score} 점`;
-    let modeText = "자가진단 수동 위자드";
-    if (activeTab === 'auto') {
-        if (activeSubTab === 'mfds') {
-            modeText = "식약처 기준 설정 니트로사민류 조회";
-        } else if (activeSubTab === 'fda') {
-            modeText = "FDA 기준 설정 니트로사민류 조회";
-        } else {
-            modeText = "신규 니트로사민류 CPCA 예측";
-        }
-    }
+    
+    const modeMap = {
+        mfds: "식약처(MFDS) 고시 1일 섭취허용량 기준 조회",
+        fda: "US FDA 고시 1일 섭취허용량 기준 조회",
+        ema: "EMA(유럽 의약품청) 고시 1일 섭취허용량 기준 조회",
+        hc: "Health Canada(캐나다) 고시 1일 섭취허용량 기준 조회",
+        tga: "TGA(호주 식약청) 고시 1일 섭취허용량 기준 조회",
+        predict: "신규 니트로사민류 CPCA 직접 예측"
+    };
+    let modeText = activeTab === 'auto' ? (modeMap[activeSubTab] || "자동 분석기") : "자가진단 수동 위자드";
+    
     document.getElementById('printMode').textContent = modeText;
     document.getElementById('printDate').textContent = new Date().toLocaleString('ko-KR', {
         year: 'numeric',
@@ -801,8 +703,8 @@ function printResult() {
         if (result.compoundSpecific) {
             printWarningArea.style.display = 'block';
             printWarningArea.innerHTML = `
-                <strong>[주의] 식약처 설정 자체 독성값 존재 물질 (CPCA 분류 예외)</strong><br>
-                본 물질은 규제 기관(식약처/EMA/FDA)에서 발암성 데이터를 기반으로 별도 지정한 '화합물 특이적 섭취허용량(Compound-Specific AI)'이 존재합니다.<br>
+                <strong>[주의] 규제 기관 설정 자체 독성값 존재 물질 (CPCA 분류 예외)</strong><br>
+                본 물질은 규제 기관(식약처/EMA/FDA/HC/TGA)에서 발암성 데이터를 기반으로 별도 지정한 '화합물 특이적 섭취허용량(Compound-Specific AI)'이 존재합니다.<br>
                 따라서 CPCA 분류법(Category 1~5)을 적용하지 않으며, 공식 발표 기준치인 <strong>${result.compoundSpecific.ai}</strong>를 우선 준수해야 합니다.
             `;
         } else {
@@ -810,26 +712,30 @@ function printResult() {
         }
     }
     
-    // 2c. Populate Print CAS Comparison Area
+    // 2c. Populate Print CAS Comparison Area & Multi-Agency Print Grid
     const printCasArea = document.getElementById('printCasComparisonArea');
     if (printCasArea) {
-        if (result.casMatch) {
+        const matches = result.multiMatches || findMultiAgencyMatches(
+            result.targetName,
+            result.queryCas || result.casMatch?.cas || result.agencyMatch?.cas,
+            result.casMatch?.active || result.agencyMatch?.active
+        );
+        
+        let printTableRows = [];
+        if (matches.mfds) printTableRows.push(`<tr><th>식약처(MFDS)</th><td>AI: <strong>${matches.mfds.ai} ng/day</strong></td><td>${matches.mfds.category ? 'Cat ' + matches.mfds.category : '자체 AI'}</td><td>-</td></tr>`);
+        if (matches.fda) printTableRows.push(`<tr><th>US FDA</th><td>AI: <strong>${matches.fda.ai} ng/day</strong></td><td>${matches.fda.category ? 'Cat ' + matches.fda.category : matches.fda.sourceType}</td><td>-</td></tr>`);
+        if (matches.ema) printTableRows.push(`<tr><th>EMA (유럽)</th><td>AI: <strong>${matches.ema.ai} ng/day</strong></td><td>${matches.ema.category ? 'Cat ' + matches.ema.category : '자체 AI'}</td><td>-</td></tr>`);
+        if (matches.hc) printTableRows.push(`<tr><th>Health Canada</th><td>AI: <strong>${matches.hc.ai} ng/day</strong></td><td>${matches.hc.category ? 'Cat ' + matches.hc.category : '자체 AI'}</td><td>-</td></tr>`);
+        if (matches.tga) printTableRows.push(`<tr><th>TGA (호주)</th><td>AI: <strong>${matches.tga.ai} ng/day</strong></td><td>${matches.tga.category ? 'Cat ' + matches.tga.category : '자체 AI'}</td><td>${matches.tga.link ? `<a href="${matches.tga.link}" class="print-hyperlink" target="_blank">TGA GSRS 링크</a>` : '-'}</td></tr>`);
+        
+        if (printTableRows.length > 0) {
             printCasArea.style.display = 'block';
-            const officialCat = result.casMatch.category ? `Category ${result.casMatch.category}` : "해당 없음 (N/A)";
             printCasArea.innerHTML = `
-                <strong>[조회 확인] 식약처 발표 불순물 기준 DB (연번: ${result.casMatch.no})</strong><br>
-                - 공식 물질명: ${result.casMatch.name} | 발생 성분: ${result.casMatch.active || 'N/A'}<br>
-                - 식약처 설정 카테고리: ${officialCat} | 식약처 발표 섭취허용량: <strong>${result.casMatch.ai} ng/day</strong><br>
-                ${result.casMatch.remark ? `- 비고 (산출 근거): ${result.casMatch.remark}<br>` : ''}
-                - 기준 발표일자: ${result.casMatch.date || 'N/A'}
-            `;
-        } else if (result.fdaMatch) {
-            printCasArea.style.display = 'block';
-            const officialCat = result.fdaMatch.category ? `Category ${result.fdaMatch.category}` : "해당 없음 (N/A)";
-            printCasArea.innerHTML = `
-                <strong>[조회 확인] FDA 발표 불순물 기준 DB (연번: ${result.fdaMatch.id}) [FDA Established AI 기준]</strong><br>
-                - 공식 물질명: ${result.fdaMatch.name} | 발생 성분: ${result.fdaMatch.api || 'N/A'}<br>
-                - FDA 설정 카테고리: ${officialCat} | FDA 발표 섭취허용량: <strong>${result.fdaMatch.ai} ng/day</strong>
+                <strong>[글로벌 5대 규제 기관 고시 비교 현황]</strong>
+                <table style="width:100%; margin-top:8px; border-collapse:collapse; font-size:8.5pt;">
+                    <thead><tr style="background:#f1f5f9;"><th>기관명</th><th>섭취허용량 (AI)</th><th>설정 등급</th><th>출처 하이퍼링크</th></tr></thead>
+                    <tbody>${printTableRows.join('')}</tbody>
+                </table>
             `;
         } else {
             printCasArea.style.display = 'none';
@@ -1677,10 +1583,396 @@ function selectAndAnalyzeFdaItem(item, outputArea, placeholder, canvas) {
 // Expose selection methods to global window namespace
 window.setFdaFilter = setFdaFilter;
 window.runFdaLookup = runFdaLookup;
+window.runEmaLookup = runEmaLookup;
+window.runHcLookup = runHcLookup;
+window.runTgaLookup = runTgaLookup;
 window.selectAndAnalyzeItemByNo = selectAndAnalyzeItemByNo;
 window.selectAndAnalyzeItem = selectAndAnalyzeItem;
 window.selectAndAnalyzeFdaItemByNo = selectAndAnalyzeFdaItemByNo;
 window.selectAndAnalyzeFdaItem = selectAndAnalyzeFdaItem;
+window.selectAndAnalyzeAgencyItemByNo = selectAndAnalyzeAgencyItemByNo;
+window.selectAndAnalyzeAgencyItem = selectAndAnalyzeAgencyItem;
+window.handleSearchAutocomplete = handleSearchAutocomplete;
+window.selectAutocompleteItem = selectAutocompleteItem;
+
+/**
+ * Searches across all 5 databases (MFDS, FDA, EMA, HC, TGA) for cross-agency comparison
+ */
+function findMultiAgencyMatches(targetName, targetCas, targetActive) {
+    const cleanCas = (targetCas || '').trim().toLowerCase();
+    const cleanName = (targetName || '').trim().toLowerCase();
+    const cleanActive = (targetActive || '').trim().toLowerCase();
+
+    function matchInDb(db) {
+        if (!db || (!cleanCas && !cleanName && !cleanActive)) return null;
+        return db.find(item => {
+            const itemCas = (item.cas || '').toLowerCase();
+            const itemName = (item.name || '').toLowerCase();
+            const itemActive = (item.active || item.api || '').toLowerCase();
+
+            if (cleanCas && itemCas && (cleanCas === itemCas || itemCas.includes(cleanCas))) return true;
+            if (cleanName && itemName && (cleanName === itemName || itemName.includes(cleanName) || cleanName.includes(itemName))) return true;
+            if (cleanActive && itemActive && (cleanActive === itemActive || itemActive.includes(cleanActive))) return true;
+            return false;
+        });
+    }
+
+    return {
+        mfds: matchInDb(window.MFDS_ADI_DATABASE),
+        fda: matchInDb(window.FDA_ADI_DATABASE),
+        ema: matchInDb(window.EMA_ADI_DATABASE),
+        hc: matchInDb(window.HC_ADI_DATABASE),
+        tga: matchInDb(window.TGA_ADI_DATABASE)
+    };
+}
+
+/**
+ * Builds HTML for 5-Agency Comparison Summary Card
+ */
+function buildMultiAgencyCardHtml(matches, activeSubTab) {
+    if (!matches) return '';
+    const { mfds, fda, ema, hc, tga } = matches;
+    if (!mfds && !fda && !ema && !hc && !tga) return '';
+
+    function renderAgencyCol(title, iconClass, match, isCurrent) {
+        const activeClass = isCurrent ? 'active-agency' : '';
+        if (!match) {
+            return `
+                <div class="agency-card-item no-data ${activeClass}">
+                    <div class="agency-title"><i class="fa-solid ${iconClass}"></i> ${title}</div>
+                    <div class="agency-ai" style="color:var(--text-muted); font-size:0.95rem;">미설정</div>
+                    <div class="agency-cat" style="color:var(--text-muted);">-</div>
+                </div>
+            `;
+        }
+
+        const catStr = match.category ? `Cat ${match.category}` : (match.sourceType || '자체 AI');
+        const linkBtn = match.link ? `<a href="${match.link}" target="_blank" class="source-link-btn" title="출처 링크"><i class="fa-solid fa-arrow-up-right-from-square"></i> GSRS</a>` : '';
+
+        return `
+            <div class="agency-card-item has-data ${activeClass}">
+                <div class="agency-title"><i class="fa-solid ${iconClass}"></i> ${title}</div>
+                <div class="agency-ai">${match.ai} <small style="font-size:0.7rem;">ng/day</small></div>
+                <div class="agency-cat"><span class="badge badge-cat-${match.category || 5}">${catStr}</span></div>
+                ${linkBtn}
+            </div>
+        `;
+    }
+
+    return `
+        <div class="comparison-card-5grid">
+            <div class="comparison-grid-header">
+                <span style="font-weight: 700; color: #0f172a; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
+                    <i class="fa-solid fa-globe" style="color: var(--color-primary);"></i> 5대 글로벌 규제 기관 (MFDS · US FDA · EMA · HC · TGA) 비교 요약
+                </span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #047857; font-size: 0.78rem;">실시간 연동 비교</span>
+            </div>
+            <div class="agency-cards-container">
+                ${renderAgencyCol('식약처(MFDS)', 'fa-building-shield', mfds, activeSubTab === 'mfds')}
+                ${renderAgencyCol('US FDA', 'fa-flag-usa', fda, activeSubTab === 'fda')}
+                ${renderAgencyCol('EMA (유럽)', 'fa-landmark', ema, activeSubTab === 'ema')}
+                ${renderAgencyCol('Health Canada', 'fa-leaf', hc, activeSubTab === 'hc')}
+                ${renderAgencyCol('TGA (호주)', 'fa-earth-oceania', tga, activeSubTab === 'tga')}
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Real-time autocomplete search handler for regulatory agency inputs
+ */
+function handleSearchAutocomplete(e, agency) {
+    const query = e.target.value.trim().toLowerCase();
+    const dropdownId = agency === 'mfds' ? 'mfdsAutocomplete' : (agency + 'Autocomplete');
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return;
+
+    if (query.length < 2) {
+        dropdown.style.display = 'none';
+        dropdown.innerHTML = '';
+        return;
+    }
+
+    let db = [];
+    if (agency === 'mfds') db = window.MFDS_ADI_DATABASE || [];
+    else if (agency === 'fda') db = window.FDA_ADI_DATABASE || [];
+    else if (agency === 'ema') db = window.EMA_ADI_DATABASE || [];
+    else if (agency === 'hc') db = window.HC_ADI_DATABASE || [];
+    else if (agency === 'tga') db = window.TGA_ADI_DATABASE || [];
+
+    const matches = db.filter(item => {
+        const name = (item.name || '').toLowerCase();
+        const active = (item.active || item.api || '').toLowerCase();
+        const cas = (item.cas || '').toLowerCase();
+        return name.includes(query) || active.includes(query) || cas.includes(query);
+    }).slice(0, 8);
+
+    if (matches.length === 0) {
+        dropdown.style.display = 'none';
+        dropdown.innerHTML = '';
+        return;
+    }
+
+    const agencyLabels = {
+        mfds: '식약처',
+        fda: 'US FDA',
+        ema: 'EMA',
+        hc: 'HC',
+        tga: 'TGA'
+    };
+
+    dropdown.innerHTML = matches.map(item => {
+        const casText = item.cas ? ` (CAS: ${item.cas})` : '';
+        const sourceText = item.active || item.api ? ` | 성분: ${item.active || item.api}` : '';
+        const catText = item.category ? ` [Cat ${item.category}]` : '';
+        const safeName = (item.name || '').replace(/'/g, "\\'");
+
+        return `
+            <div class="autocomplete-item" onclick="selectAutocompleteItem('${agency}', '${safeName}', '${item.id || item.no}')">
+                <div class="item-title">
+                    <span class="badge" style="font-size:0.7rem; background:#0284c7; color:#fff; padding:0.1rem 0.4rem;">${agencyLabels[agency]}</span>
+                    <span>${item.name}</span>
+                </div>
+                <div class="item-sub">${item.ai} ng/day${catText}${casText}${sourceText}</div>
+            </div>
+        `;
+    }).join('');
+
+    dropdown.style.display = 'block';
+}
+
+function selectAutocompleteItem(agency, name, id) {
+    const inputId = agency === 'mfds' ? 'adiSearchInput' : (agency + 'SearchInput');
+    const dropdownId = agency === 'mfds' ? 'mfdsAutocomplete' : (agency + 'Autocomplete');
+    const input = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+
+    if (input) input.value = name;
+    if (dropdown) dropdown.style.display = 'none';
+
+    if (agency === 'mfds') runAdiLookup();
+    else if (agency === 'fda') runFdaLookup();
+    else if (agency === 'ema') runEmaLookup();
+    else if (agency === 'hc') runHcLookup();
+    else if (agency === 'tga') runTgaLookup();
+}
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.form-group')) {
+        document.querySelectorAll('.autocomplete-dropdown').forEach(el => el.style.display = 'none');
+    }
+});
+
+/**
+ * EMA, Health Canada, TGA Lookups
+ */
+function runEmaLookup() {
+    const searchInput = document.getElementById('emaSearchInput');
+    const outputArea = document.getElementById('resultOutputArea');
+    const placeholder = document.getElementById('canvasPlaceholder');
+    const canvas = document.getElementById('smilesCanvas');
+    if (!searchInput || !outputArea) return;
+
+    const query = searchInput.value.trim();
+    if (!query) {
+        alert("EMA 불순물명, 주성분(Source) 또는 CAS 번호를 입력해 주세요.");
+        return;
+    }
+    runAgencyTextSearch('ema', query, window.EMA_ADI_DATABASE, outputArea, placeholder, canvas);
+}
+
+function runHcLookup() {
+    const searchInput = document.getElementById('hcSearchInput');
+    const outputArea = document.getElementById('resultOutputArea');
+    const placeholder = document.getElementById('canvasPlaceholder');
+    const canvas = document.getElementById('smilesCanvas');
+    if (!searchInput || !outputArea) return;
+
+    const query = searchInput.value.trim();
+    if (!query) {
+        alert("Health Canada 불순물명, 주성분(Drug Substance) 또는 CAS 번호를 입력해 주세요.");
+        return;
+    }
+    runAgencyTextSearch('hc', query, window.HC_ADI_DATABASE, outputArea, placeholder, canvas);
+}
+
+function runTgaLookup() {
+    const searchInput = document.getElementById('tgaSearchInput');
+    const outputArea = document.getElementById('resultOutputArea');
+    const placeholder = document.getElementById('canvasPlaceholder');
+    const canvas = document.getElementById('smilesCanvas');
+    if (!searchInput || !outputArea) return;
+
+    const query = searchInput.value.trim();
+    if (!query) {
+        alert("TGA 불순물명, 주성분(Source) 또는 CAS 번호를 입력해 주세요.");
+        return;
+    }
+    runAgencyTextSearch('tga', query, window.TGA_ADI_DATABASE, outputArea, placeholder, canvas);
+}
+
+function runAgencyTextSearch(agencyKey, query, db, outputArea, placeholder, canvas) {
+    const lowercaseQuery = query.toLowerCase();
+    const matches = [];
+    const agencyNames = { ema: 'EMA', hc: 'Health Canada', tga: 'TGA' };
+    const agencyName = agencyNames[agencyKey] || agencyKey.toUpperCase();
+
+    if (db) {
+        for (let item of db) {
+            const matchName = (item.name || '').toLowerCase();
+            const matchActive = (item.active || item.api || '').toLowerCase();
+            const matchCas = (item.cas || '').toLowerCase();
+
+            if (matchName.includes(lowercaseQuery) || matchActive.includes(lowercaseQuery) || matchCas.includes(lowercaseQuery)) {
+                matches.push(item);
+            }
+        }
+    }
+
+    if (matches.length === 0) {
+        outputArea.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-magnifying-glass-minus" style="font-size: 3.5rem; color: var(--color-warning); margin-bottom: 1.5rem;"></i>
+                <h3>검색 결과가 없습니다</h3>
+                <p>입력하신 <strong>"${query}"</strong>에 부합하는 불순물명 또는 발생성분을 ${agencyName} 설정 기준 DB에서 찾을 수 없습니다.</p>
+                <button class="btn btn-primary btn-sm" style="display: flex; align-items: center; gap: 0.4rem; margin: 1rem auto 0 auto;" onclick="switchSubTab('predict'); document.getElementById('smilesInput').value = '${isSmilesPattern(query) ? query : ''}';">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> 신규 니트로사민류 예측 탭으로 이동
+                </button>
+            </div>
+        `;
+    } else if (matches.length === 1) {
+        selectAndAnalyzeAgencyItem(agencyKey, matches[0], outputArea, placeholder, canvas);
+    } else {
+        let listHtml = matches.map(item => {
+            const catDisplay = item.category ? `<span class="badge badge-cat-${item.category}">Cat ${item.category}</span>` : 'N/A';
+            const casDisplay = item.cas || '등록 없음';
+            const linkBtn = item.link ? `<a href="${item.link}" target="_blank" class="source-link-btn" onclick="event.stopPropagation();"><i class="fa-solid fa-arrow-up-right-from-square"></i> 출처</a>` : '';
+
+            return `
+                <tr class="search-result-row" onclick="window.selectAndAnalyzeAgencyItemByNo('${agencyKey}', ${item.id})">
+                    <td><strong>${item.name}</strong></td>
+                    <td>${item.active || item.api || 'N/A'}</td>
+                    <td class="center-text">${casDisplay}</td>
+                    <td class="center-text">${catDisplay}</td>
+                    <td class="right-text"><strong>${item.ai} ng/day</strong></td>
+                    <td class="center-text">${linkBtn}</td>
+                </tr>
+            `;
+        }).join('');
+
+        outputArea.innerHTML = `
+            <div class="search-results-panel">
+                <div class="search-results-header" style="display: flex; align-items: center; justify-content: space-between;">
+                    <span><i class="fa-solid fa-list-ol"></i> ${agencyName} DB 복수 검색 결과 (총 <strong>${matches.length}</strong>건)</span>
+                    <span class="badge" style="background: rgba(14, 165, 233, 0.15); color: #0284c7; border: 1px solid rgba(14, 165, 233, 0.3); font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 20px;">${agencyName} 공식 DB</span>
+                </div>
+                <p class="search-results-desc">검색어 <strong>"${query}"</strong>에 매핑되는 불순물 목록입니다. 분석할 항목을 클릭하세요:</p>
+                <div class="table-responsive" style="margin-top: 1rem;">
+                    <table class="search-results-table">
+                        <thead>
+                            <tr>
+                                <th>불순물 명칭</th>
+                                <th>발생 원료 성분</th>
+                                <th class="center-text">CAS No.</th>
+                                <th class="center-text">설정 등급</th>
+                                <th class="right-text">1일 허용량 (AI)</th>
+                                <th class="center-text">출처 링크</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${listHtml}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function selectAndAnalyzeAgencyItemByNo(agencyKey, id) {
+    let db = [];
+    if (agencyKey === 'ema') db = window.EMA_ADI_DATABASE;
+    else if (agencyKey === 'hc') db = window.HC_ADI_DATABASE;
+    else if (agencyKey === 'tga') db = window.TGA_ADI_DATABASE;
+    if (!db) return;
+
+    const item = db.find(x => x.id === id);
+    if (!item) return;
+
+    const searchInput = document.getElementById(agencyKey + 'SearchInput');
+    if (searchInput) searchInput.value = item.name;
+
+    const outputArea = document.getElementById('resultOutputArea');
+    const placeholder = document.getElementById('canvasPlaceholder');
+    const canvas = document.getElementById('smilesCanvas');
+
+    selectAndAnalyzeAgencyItem(agencyKey, item, outputArea, placeholder, canvas);
+}
+
+function selectAndAnalyzeAgencyItem(agencyKey, item, outputArea, placeholder, canvas) {
+    const agencyNames = { ema: 'EMA', hc: 'Health Canada', tga: 'TGA' };
+    const agencyName = agencyNames[agencyKey] || agencyKey.toUpperCase();
+
+    outputArea.innerHTML = `
+        <div class="empty-state">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 3.5rem; color: var(--color-primary); margin-bottom: 1.5rem;"></i>
+            <h3>화학 구조 정보 조회 및 5개 기관 통합 비교 분석 중...</h3>
+            <p>선택하신 불순물 <strong>${item.name}</strong>의 정보를 조회하고 있습니다.</p>
+        </div>
+    `;
+
+    const mddVal = parseFloat(document.getElementById('mddInputAuto').value);
+    const hasMdd = !isNaN(mddVal);
+
+    const smilesQuery = item.smiles || item.cas || item.name;
+
+    function processItemWithSmiles(smiles) {
+        const cpcaResult = smiles ? window.calculateCPCA(smiles) : { success: true, category: item.category || 5, score: null, ai: item.ai + " ng/day", messages: [`${agencyName} 공식 발표 데이터 조회`] };
+        const multiMatches = findMultiAgencyMatches(item.name, item.cas, item.active || item.api);
+
+        lastAutoResult = {
+            smiles: smiles || "N/A (SMILES 직접 미제공)",
+            targetName: item.name,
+            mdd: hasMdd ? mddVal : null,
+            ...cpcaResult,
+            ai: item.ai ? `${item.ai} ng/day` : cpcaResult.ai,
+            agencyMatch: item,
+            agencyKey: agencyKey,
+            agencyName: agencyName,
+            multiMatches: multiMatches
+        };
+
+        if (smiles && smiles !== "N/A (SMILES 직접 미제공)") {
+            drawSmilesStructure(smiles, placeholder, canvas, cpcaResult);
+        } else {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.display = 'none';
+            placeholder.style.display = 'flex';
+            placeholder.innerHTML = `
+                <i class="fa-solid fa-circle-info" style="color: var(--color-primary)"></i>
+                <p>구조식 시각화 미제공<br><small>${agencyName} 공식 DB 기준 데이터로 연산을 출력합니다.</small></p>
+            `;
+        }
+
+        renderResults(outputArea, lastAutoResult);
+    }
+
+    if (item.smiles) {
+        processItemWithSmiles(item.smiles);
+    } else {
+        fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/chemical/name/${encodeURIComponent(smilesQuery)}/property/CanonicalSMILES/JSON`)
+            .then(res => res.json())
+            .then(data => {
+                const smiles = data.PropertyTable?.Properties?.[0]?.CanonicalSMILES;
+                processItemWithSmiles(smiles || null);
+            })
+            .catch(() => {
+                processItemWithSmiles(null);
+            });
+    }
+}
+
 
 // ==========================================================================
 // Feedback & Guestbook System Logic
