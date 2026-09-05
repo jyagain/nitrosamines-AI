@@ -35,9 +35,14 @@
                         <p class="subtitle">Nitrosamine ADI & Regulatory Assessment System</p>
                     </div>
                 </div>
-                <button class="btn btn-secondary" onclick="openFeedbackModal()" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; padding: 0.55rem 1.1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">
-                    <i class="fa-solid fa-comments"></i> <span>방명록 & 피드백</span>
-                </button>
+                <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" onclick="openAboutModal()" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; padding: 0.55rem 1.1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">
+                        <i class="fa-solid fa-circle-info"></i> <span>시스템 정보 & 라이선스</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="openFeedbackModal()" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; padding: 0.55rem 1.1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">
+                        <i class="fa-solid fa-comments"></i> <span>방명록 & 피드백</span>
+                    </button>
+                </div>
             </div>
             <div class="header-desc">
                 식약처 · US FDA · EMA · Health Canada · TGA 5대 글로벌 규제 기관 1일 섭취허용량(AI) 통합 DB 및 구조 기반 위해성 평가 시스템
@@ -556,9 +561,19 @@
                 <span style="color: #94a3b8 !important;">|</span>
                 <span style="color: #1e293b !important;"><i class="fa-regular fa-calendar-check" style="color: #0284c7 !important;"></i> 정기 업데이트: <strong style="color: #0284c7 !important;">매달 4일</strong> (5대 규제 기관 최신 고시 연동)</span>
             </div>
-            <p>© 2026 CPCA 계산기 - 클라이언트 사이드 니트로사민 불순물 평가 솔루션</p>
-            <p class="disclaimer">Novartis Open Source CPCA Script (MIT License)에 근거하여 개발되었습니다. 모든 계산은 브라우저 로컬 환경에서 기밀이
-                유지된 채 수행됩니다.</p>
+            <p style="font-weight: 600; color: #0f172a; margin-bottom: 0.4rem;">
+                © 2026 Ju-yeon Lee. All rights reserved. | Powered by Novartis CPCA Engine (Apache 2.0)
+            </p>
+            <p class="disclaimer" style="margin-bottom: 0.4rem;">
+                모든 계산 및 위해성 평가는 브라우저 로컬 환경에서 기밀이 유지된 채 수행됩니다. 
+                <button class="about-modal-link-btn" onclick="openAboutModal()" style="background: none; border: none; color: #0284c7; text-decoration: underline; font-weight: 600; cursor: pointer; font-size: 0.8rem; padding: 0; margin-left: 0.3rem;">
+                    [시스템 정보 및 상세 라이선스 고지 보기]
+                </button>
+            </p>
+            <p style="font-size: 0.78rem; color: #64748b; margin-top: 0.3rem; margin-bottom: 0.8rem; max-width: 840px; margin-left: auto; margin-right: auto; line-height: 1.45;">
+                <i class="fa-solid fa-circle-info" style="color: #0284c7; margin-right: 0.2rem;"></i>
+                공무, 연구, 원내 보고 및 출품 시 원저작자(Ju-yeon Lee) 및 원천 출처 명시 필수 (Unauthorized derivation prohibited)
+            </p>
             <!-- 방문자 수 카운터 배지 -->
             <div style="text-align: center; margin-top: 20px;">
                 <img src="https://hits.dwyl.com/jyagain/nitrosamines-AI.svg" alt="Hits Counter" onError="this.style.display='none'"/>
@@ -664,6 +679,119 @@
 
                     <div class="feedback-list-container" id="feedbackListContainer">
                         <!-- Dynamic Feedback Cards Rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About & License Notice Modal -->
+    <div class="modal-overlay" id="aboutModalOverlay" onclick="closeAboutModal(event)" style="display: none;">
+        <div class="about-modal-content" onclick="event.stopPropagation();">
+            <div class="about-modal-header">
+                <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--color-primary); font-size: 1.4rem;"></i>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.15rem; font-weight: 700; color: #0f172a;">시스템 정보 & 라이선스 고지</h3>
+                        <small style="color: var(--text-muted);">nitrosamines-AI 저작권 및 서드파티 오픈소스 출처 고지</small>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="closeAboutModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="about-modal-body">
+                <!-- Project Identity Banner -->
+                <div class="about-project-card">
+                    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+                        <div style="width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, #0ea5e9, #6366f1); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.05rem; font-weight: 700; color: #0f172a;">니트로사민 ADI & 규제 대응 평가 시스템</h4>
+                            <p style="margin: 0.2rem 0 0 0; font-size: 0.82rem; color: #64748b;">Nitrosamine ADI & Regulatory Assessment System</p>
+                        </div>
+                    </div>
+                    <div class="about-badge-row">
+                        <span class="badge-about-author"><i class="fa-solid fa-user-gear"></i> 기획·개발: 이주연 (Ju-yeon Lee)</span>
+                        <span class="badge-about-license"><i class="fa-solid fa-certificate"></i> License: Apache 2.0</span>
+                        <span class="badge-about-copyright"><i class="fa-regular fa-copyright"></i> © 2026 Ju-yeon Lee</span>
+                    </div>
+                </div>
+
+                <!-- Section 1: Original Features -->
+                <div class="about-section">
+                    <h4 class="about-section-title">
+                        <i class="fa-solid fa-code" style="color: #0284c7;"></i> Core Development & Original Features
+                        <span class="author-tag">Developed by Ju-yeon Lee</span>
+                    </h4>
+                    <div class="feature-grid">
+                        <div class="feature-item-card">
+                            <div class="feature-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                            <div class="feature-info">
+                                <h5>5대 글로벌 규제기관 DB 파이프라인</h5>
+                                <p>식약처(MFDS), US FDA, EMA, Health Canada, TGA 고시 섭취허용량(AI) 데이터 매핑 및 자동완성 검색 파이프라인</p>
+                            </div>
+                        </div>
+                        <div class="feature-item-card">
+                            <div class="feature-icon"><i class="fa-solid fa-calculator"></i></div>
+                            <div class="feature-info">
+                                <h5>MDD 연동 ppm 산출 로직</h5>
+                                <p>1일 최대 복용량(MDD, mg/day) 연동 불순물 허용 농도 기준(Limit, ppm) 및 30% 관리 기준선 자동 계산 Engine</p>
+                            </div>
+                        </div>
+                        <div class="feature-item-card">
+                            <div class="feature-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                            <div class="feature-info">
+                                <h5>심사용 PDF 종합 평가 리포트 엔진</h5>
+                                <p>전자 서명란, CPCA 산출 세부 내역 및 2D 구조식이 포함된 표준 인허가 제출용 PDF 리포트 자동 생성</p>
+                            </div>
+                        </div>
+                        <div class="feature-item-card">
+                            <div class="feature-icon"><i class="fa-solid fa-desktop"></i></div>
+                            <div class="feature-info">
+                                <h5>전체 UI/UX & 평가 워크플로우</h5>
+                                <p>클라이언트 사이드 100% 보안 유지 구조, 수동 자가진단 위자드 및 웹 인터페이스 전체 기획·개발</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Third-Party Attribution -->
+                <div class="about-section" style="margin-top: 1.5rem;">
+                    <h4 class="about-section-title">
+                        <i class="fa-solid fa-layer-group" style="color: #6366f1;"></i> Third-Party Attribution & Open Source Notice
+                    </h4>
+                    <div class="thirdparty-card">
+                        <div class="thirdparty-header">
+                            <span class="thirdparty-name"><i class="fa-brands fa-github"></i> Novartis / NDSRIs_in_silico_tool</span>
+                            <span class="thirdparty-license-badge">Apache License 2.0</span>
+                        </div>
+                        <p class="thirdparty-desc">
+                            본 웹 서비스는 <strong>Novartis</strong>에서 공개한 오픈소스 알고리즘(NDSRIs_in_silico_tool)을 기반으로 커스텀 연동되어 개발되었습니다.
+                        </p>
+                        <ul class="thirdparty-list">
+                            <li><strong>차용 모듈:</strong> CPCA (Carcinogenic Potency Categorization Approach) 계산 알고리즘 일부, 2D 화학 구조식 렌더링 및 SMILES 파싱 모듈</li>
+                            <li><strong>원천 출처:</strong> <a href="https://github.com/Novartis/NDSRIs_in_silico_tool" target="_blank" rel="noopener noreferrer">https://github.com/Novartis/NDSRIs_in_silico_tool</a></li>
+                            <li><strong>라이선스 조건:</strong> Apache License 2.0 규정에 따라 서드파티 고지 및 출처를 명시하며 관련 권리를 준수합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 3: Official Citation & Usage Notice -->
+                <div class="about-section" style="margin-top: 1.5rem;">
+                    <h4 class="about-section-title">
+                        <i class="fa-solid fa-bookmark" style="color: #f59e0b;"></i> Citation & Usage Notice (공식 인용 및 참조 가이드)
+                    </h4>
+                    <div class="citation-notice-card">
+                        <div style="display: flex; align-items: flex-start; gap: 0.7rem;">
+                            <i class="fa-solid fa-quote-left" style="color: #d97706; font-size: 1.15rem; margin-top: 0.2rem; flex-shrink: 0;"></i>
+                            <div>
+                                <p class="citation-text">
+                                    본 시스템의 워크플로우, 데이터 파이프라인 및 고유 기능(5개 규제기관 데이터 매핑, ppm 기준 산출, 리포트 자동 생성 등)을 공무, 연구, 원내 보고 및 출품 등에 인용·활용할 경우 반드시 원저작자(Ju-yeon Lee) 및 원천 도구의 출처를 명시해야 합니다.
+                                </p>
+                                <span class="citation-subtext">(Unauthorized derivation without proper citation is strictly prohibited.)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

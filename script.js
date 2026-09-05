@@ -2052,6 +2052,22 @@ function closeFeedbackModal(event) {
     }
 }
 
+function openAboutModal() {
+    const modal = document.getElementById('aboutModalOverlay');
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
+function closeAboutModal(event) {
+    if (!event || event.target.id === 'aboutModalOverlay' || event.target.closest('.modal-close-btn')) {
+        const modal = document.getElementById('aboutModalOverlay');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+
 function selectFeedbackCategory(cat) {
     currentFbCategory = cat;
     document.querySelectorAll('#feedbackCategoryPills .pill-btn').forEach(btn => {
@@ -2217,9 +2233,11 @@ function exportFeedbackJson() {
     dlAnchorElem.remove();
 }
 
-// Expose feedback functions globally
+// Expose feedback & about functions globally
 window.openFeedbackModal = openFeedbackModal;
 window.closeFeedbackModal = closeFeedbackModal;
+window.openAboutModal = openAboutModal;
+window.closeAboutModal = closeAboutModal;
 window.selectFeedbackCategory = selectFeedbackCategory;
 window.setFeedbackRating = setFeedbackRating;
 window.submitFeedback = submitFeedback;
