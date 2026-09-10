@@ -45,6 +45,15 @@ def parse_mfds():
         except:
             no_int = sheet.max_row - r + 1
 
+        d_val = clean_val(sheet.cell(r, 9).value)
+        date_str = d_val or "2026-09-10"
+        if date_str and len(date_str) >= 7 and date_str[:4].isdigit():
+            y = date_str[:4]
+            m = int(date_str[5:7])
+            pub_date = f"{y}년 {m}월 공고"
+        else:
+            pub_date = "2026년 9월 공고"
+
         rec = {
             "no": no_int,
             "name": clean_val(sheet.cell(r, 2).value),
@@ -54,8 +63,8 @@ def parse_mfds():
             "category": parse_num(sheet.cell(r, 6).value),
             "ai": parse_ai(sheet.cell(r, 7).value),
             "remark": clean_val(sheet.cell(r, 8).value),
-            "date": clean_val(sheet.cell(r, 9).value) or "2026-08",
-            "publishDate": "2026년 8월 공고"
+            "date": date_str,
+            "publishDate": pub_date
         }
         records.append(rec)
     records.sort(key=lambda x: x["no"], reverse=True)

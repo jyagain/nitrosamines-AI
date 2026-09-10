@@ -1,5 +1,17 @@
-/** MFDS Official Database (168 entries) */
+/** MFDS Official Database (169 entries) */
 window.MFDS_ADI_DATABASE = [
+  {
+    "no": 169,
+    "name": "N-nitroso-carteolol",
+    "iupac": "N-tert-butyl-N-[2-hydroxy-3-[(2-oxo-3,4-dihydro-1H-quinolin-5-yl)oxy]propyl]nitrous amide",
+    "cas": null,
+    "active": "카르테올롤염산염(Carteolol Hydrochloride)",
+    "category": 5,
+    "ai": "1500",
+    "remark": null,
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
+  },
   {
     "no": 168,
     "name": "N-nitroso-mefloquine",
@@ -9,8 +21,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 4,
     "ai": "1500",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 167,
@@ -21,8 +33,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 3,
     "ai": "400",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 166,
@@ -33,8 +45,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 2,
     "ai": "100",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 165,
@@ -45,8 +57,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 2,
     "ai": "100",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 164,
@@ -57,8 +69,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 2,
     "ai": "100",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 163,
@@ -69,8 +81,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 2,
     "ai": "100",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 162,
@@ -81,8 +93,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 2,
     "ai": "100",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 161,
@@ -93,8 +105,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 1,
     "ai": "26.5",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 160,
@@ -105,8 +117,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 1,
     "ai": "26.5",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 159,
@@ -117,8 +129,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 1,
     "ai": "26.5",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 158,
@@ -129,8 +141,8 @@ window.MFDS_ADI_DATABASE = [
     "category": 1,
     "ai": "26.5",
     "remark": null,
-    "date": "2026-08",
-    "publishDate": "2026년 8월 공고"
+    "date": "2026-09-10",
+    "publishDate": "2026년 9월 공고"
   },
   {
     "no": 157,
@@ -142,7 +154,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2026-06-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 6월 공고"
   },
   {
     "no": 156,
@@ -154,7 +166,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "96",
     "remark": "SAR/read-across, 참조물질 NDMA",
     "date": "2026-05-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 5월 공고"
   },
   {
     "no": 155,
@@ -166,7 +178,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 154,
@@ -178,7 +190,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 153,
@@ -190,7 +202,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 152,
@@ -202,7 +214,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 151,
@@ -214,7 +226,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 150,
@@ -226,7 +238,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 149,
@@ -238,7 +250,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 148,
@@ -250,7 +262,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 147,
@@ -262,7 +274,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 146,
@@ -274,7 +286,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2026-03-24",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 3월 공고"
   },
   {
     "no": 145,
@@ -286,7 +298,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": "AMES 음성",
     "date": "2026-01-02",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 1월 공고"
   },
   {
     "no": 144,
@@ -298,7 +310,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 143,
@@ -310,7 +322,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 142,
@@ -322,7 +334,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 141,
@@ -334,7 +346,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 140,
@@ -346,7 +358,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 139,
@@ -358,7 +370,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 138,
@@ -370,7 +382,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 137,
@@ -382,7 +394,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 136,
@@ -394,7 +406,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-08-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 8월 공고"
   },
   {
     "no": 135,
@@ -406,7 +418,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, in vivo",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 134,
@@ -418,7 +430,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 133,
@@ -430,7 +442,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 132,
@@ -442,7 +454,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 131,
@@ -454,7 +466,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 130,
@@ -466,7 +478,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 129,
@@ -478,7 +490,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 128,
@@ -490,7 +502,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 127,
@@ -502,7 +514,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, in vivo",
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 126,
@@ -514,7 +526,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 125,
@@ -526,7 +538,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 124,
@@ -538,7 +550,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 123,
@@ -550,7 +562,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1300",
     "remark": "SAR/read-across, 참조물질 NPIP",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 122,
@@ -562,7 +574,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-01-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 1월 공고"
   },
   {
     "no": 121,
@@ -574,7 +586,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 120,
@@ -586,7 +598,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 119,
@@ -598,7 +610,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 118,
@@ -610,7 +622,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-01-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 1월 공고"
   },
   {
     "no": 117,
@@ -622,7 +634,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 116,
@@ -634,7 +646,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 115,
@@ -646,7 +658,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 114,
@@ -658,7 +670,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 113,
@@ -670,7 +682,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 112,
@@ -682,7 +694,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 111,
@@ -694,7 +706,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 110,
@@ -706,7 +718,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 109,
@@ -718,7 +730,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 108,
@@ -730,7 +742,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, SAR/read-across, 참조물질 N-nitroso-N-desmethyl-azithromycin",
     "date": "2026-07-01",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2026년 7월 공고"
   },
   {
     "no": 107,
@@ -742,7 +754,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 106,
@@ -754,7 +766,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": "AMES 음성",
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 105,
@@ -766,7 +778,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 104,
@@ -778,7 +790,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 103,
@@ -790,7 +802,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 102,
@@ -802,7 +814,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 101,
@@ -814,7 +826,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 100,
@@ -826,7 +838,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 99,
@@ -838,7 +850,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 98,
@@ -850,7 +862,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 97,
@@ -862,7 +874,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 96,
@@ -874,7 +886,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-01-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 1월 공고"
   },
   {
     "no": 95,
@@ -886,7 +898,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 94,
@@ -898,7 +910,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 93,
@@ -910,7 +922,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": "AMES 음성",
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 92,
@@ -922,7 +934,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-01-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 1월 공고"
   },
   {
     "no": 91,
@@ -934,7 +946,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 90,
@@ -946,7 +958,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 89,
@@ -958,7 +970,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 88,
@@ -970,7 +982,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, in vivo",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 87,
@@ -982,7 +994,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, in vivo",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 86,
@@ -994,7 +1006,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 85,
@@ -1006,7 +1018,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 84,
@@ -1018,7 +1030,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 83,
@@ -1030,7 +1042,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 82,
@@ -1042,7 +1054,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 81,
@@ -1054,7 +1066,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-01-09",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 1월 공고"
   },
   {
     "no": 80,
@@ -1066,7 +1078,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "33",
     "remark": "비변이원성 불순물, in vivo",
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 79,
@@ -1078,7 +1090,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 78,
@@ -1090,7 +1102,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2024-10-25",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 10월 공고"
   },
   {
     "no": 77,
@@ -1102,7 +1114,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 76,
@@ -1114,7 +1126,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-01-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 1월 공고"
   },
   {
     "no": 75,
@@ -1126,7 +1138,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 74,
@@ -1138,7 +1150,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 73,
@@ -1150,7 +1162,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 72,
@@ -1162,7 +1174,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 71,
@@ -1174,7 +1186,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 70,
@@ -1186,7 +1198,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 69,
@@ -1198,7 +1210,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 68,
@@ -1210,7 +1222,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 67,
@@ -1222,7 +1234,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 66,
@@ -1234,7 +1246,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 65,
@@ -1246,7 +1258,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 64,
@@ -1258,7 +1270,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 63,
@@ -1270,7 +1282,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 62,
@@ -1282,7 +1294,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 61,
@@ -1294,7 +1306,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 60,
@@ -1306,7 +1318,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 59,
@@ -1318,7 +1330,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 58,
@@ -1330,7 +1342,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 57,
@@ -1342,7 +1354,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-06-21",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 6월 공고"
   },
   {
     "no": 56,
@@ -1354,7 +1366,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 55,
@@ -1366,7 +1378,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 54,
@@ -1378,7 +1390,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 53,
@@ -1390,7 +1402,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 52,
@@ -1402,7 +1414,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 51,
@@ -1414,7 +1426,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 50,
@@ -1426,7 +1438,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1300",
     "remark": "SAR/read-across, 참조물질 NPIP",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 49,
@@ -1438,7 +1450,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 48,
@@ -1450,7 +1462,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 47,
@@ -1462,7 +1474,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 46,
@@ -1474,7 +1486,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 45,
@@ -1486,7 +1498,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 44,
@@ -1498,7 +1510,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 43,
@@ -1510,7 +1522,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 42,
@@ -1522,7 +1534,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 41,
@@ -1534,7 +1546,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 40,
@@ -1546,7 +1558,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 39,
@@ -1558,7 +1570,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 38,
@@ -1570,7 +1582,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 37,
@@ -1582,7 +1594,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 36,
@@ -1594,7 +1606,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 35,
@@ -1606,7 +1618,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 34,
@@ -1618,7 +1630,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 33,
@@ -1630,7 +1642,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 32,
@@ -1642,7 +1654,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 31,
@@ -1654,7 +1666,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 30,
@@ -1666,7 +1678,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 29,
@@ -1678,7 +1690,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 28,
@@ -1690,7 +1702,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 27,
@@ -1702,7 +1714,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-01-09",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 1월 공고"
   },
   {
     "no": 26,
@@ -1714,7 +1726,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": "SAR/read-across, 참조물질 NNK",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 25,
@@ -1726,7 +1738,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 24,
@@ -1738,7 +1750,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 23,
@@ -1750,7 +1762,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 22,
@@ -1762,7 +1774,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 21,
@@ -1774,7 +1786,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 20,
@@ -1786,7 +1798,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 19,
@@ -1798,7 +1810,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 18,
@@ -1810,7 +1822,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": "AMES 음성",
     "date": "2024-06-21",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 6월 공고"
   },
   {
     "no": 17,
@@ -1822,7 +1834,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-03-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 3월 공고"
   },
   {
     "no": 16,
@@ -1834,7 +1846,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2024-11-06",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 11월 공고"
   },
   {
     "no": 15,
@@ -1846,7 +1858,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 14,
@@ -1858,7 +1870,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1700",
     "remark": "SAR/read-across, 참조물질 NPYR",
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 13,
@@ -1870,7 +1882,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2025-06-12",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 6월 공고"
   },
   {
     "no": 12,
@@ -1882,7 +1894,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "100",
     "remark": null,
     "date": "2025-02-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 2월 공고"
   },
   {
     "no": 11,
@@ -1894,7 +1906,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2025-01-09",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2025년 1월 공고"
   },
   {
     "no": 10,
@@ -1906,7 +1918,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 9,
@@ -1918,7 +1930,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "400",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 8,
@@ -1930,7 +1942,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1500",
     "remark": null,
     "date": "2024-12-04",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2024년 12월 공고"
   },
   {
     "no": 7,
@@ -1942,7 +1954,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1700",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 6,
@@ -1954,7 +1966,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "1300",
     "remark": null,
     "date": "2023-12-13",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2023년 12월 공고"
   },
   {
     "no": 5,
@@ -1966,7 +1978,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "127",
     "remark": null,
     "date": "2022-02-17",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2022년 2월 공고"
   },
   {
     "no": 4,
@@ -1978,7 +1990,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": "SAR/read-across, 참조물질 NDEA",
     "date": "2021-11-18",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2021년 11월 공고"
   },
   {
     "no": 3,
@@ -1990,7 +2002,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": "SAR/read-across, 참조물질 NDEA",
     "date": "2021-11-09",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2021년 11월 공고"
   },
   {
     "no": 2,
@@ -2002,7 +2014,7 @@ window.MFDS_ADI_DATABASE = [
     "ai": "26.5",
     "remark": null,
     "date": "2018-11-20",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2018년 11월 공고"
   },
   {
     "no": 1,
@@ -2014,6 +2026,6 @@ window.MFDS_ADI_DATABASE = [
     "ai": "96",
     "remark": null,
     "date": "2018-08-06",
-    "publishDate": "2026년 8월 공고"
+    "publishDate": "2018년 8월 공고"
   }
 ];
